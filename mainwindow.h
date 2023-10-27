@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -16,22 +18,16 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_pushButton_clicked();
 
+    void on_pushButton_3_clicked();
 
-    void on_pushButton_6_clicked();
-
-    void on_pushButton_5_clicked();
-
-
-
-    void on_easybutton_clicked();
-
-    void on_mediumbutton_clicked();
-
-    void on_hardbutton_clicked();
 
 private:
+    bool easy =1;
+    bool medium =0;
+    bool hard =0;
+
     Ui::MainWindow *ui;
-    qint64 levels=0;
 };
 #endif // MAINWINDOW_H

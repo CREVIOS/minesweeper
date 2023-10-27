@@ -1,9 +1,12 @@
 <RCC>
     <qresource prefix="/">
+        <file>../../Desktop/QtMineSweep-master/res/blocks.bmp</file>
+        <file>../../Desktop/QtMineSweep-master/res/faces.bmp</file>
+        <file>../../Desktop/QtMineSweep-master/res/frame.bmp</file>
+        <file>../../Desktop/QtMineSweep-master/res/timenumber.bmp</file>
         <file>res/blocks.bmp</file>
         <file>res/faces.bmp</file>
         <file>res/frame.bmp</file>
         <file>res/timenumber.bmp</file>
-        <file>res/bgimage.jpg</file>
     </qresource>
 </RCC>

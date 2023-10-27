@@ -7,6 +7,8 @@
 #include "sec_window.h"
 #include "ui_sec_window.h"
 #include "mainwindow.h"
+#include "game_model.h"
+
 #include <QStatusBar>
 const int blockSize = 20;
 const int offsetX = 5;
@@ -46,7 +48,9 @@ sec_window::sec_window(QWidget *parent) :
     timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);
     timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
     timer->start(1000);
+
 }
+
 
 void sec_window::paintEvent(QPaintEvent *event)
 {
@@ -59,7 +63,7 @@ void sec_window::paintEvent(QPaintEvent *event)
     switch(game->gameState)
     {
     case OVER:
-        painter.drawPixmap((game->mCol * blockSize + offsetX * 2) / 2 - 12, spaceY / 2, bmpFaces, 0 * 24, 0, 24, 24); // 24是笑脸的边长,锚点在左上，因为工具栏占了些，所以看起来不再中间
+        painter.drawPixmap((game->mCol * blockSize + offsetX * 2) / 2 - 12, spaceY / 2, bmpFaces, 0 * 24, 0, 24, 24);
         break;
     case PLAYING:
         painter.drawPixmap((game->mCol * blockSize + offsetX * 2) / 2 - 12, spaceY / 2, bmpFaces, 1 * 24, 0, 24, 24);
@@ -72,28 +76,27 @@ void sec_window::paintEvent(QPaintEvent *event)
         break;
     }
 
-    // 绘制剩余雷数
     int n = game->curMineNumber;
-    int posX = (game->mCol * blockSize + offsetX * 2) / 2 - 50; // 最后一位数字的横坐标
-    if(n <= 0) // 如果雷数为0或者减到0以下，单独绘制
+    int posX = (game->mCol * blockSize + offsetX * 2) / 2 - 50;
+    if(n <= 0)
     {
-        painter.drawPixmap(posX, spaceY / 2, bmpNumber, n * 20, 0, 20, 28); // 20是数字的宽，28是高
+        painter.drawPixmap(posX, spaceY / 2, bmpNumber, n * 20, 0, 20, 28);
     }
-    while(n > 0) // 如果是多位数
+    while(n > 0)
     {
-        painter.drawPixmap(posX - 20, spaceY / 2, bmpNumber, n % 10 * 20, 0, 20, 28); // 每次从后面绘制一位
+        painter.drawPixmap(posX - 20, spaceY / 2, bmpNumber, n % 10 * 20, 0, 20, 28);
         n /= 10;
         posX -= 20;
     }
 
-    // 绘制雷区
+
     for(int i = 0; i < game->mRow; i++)
     {
         for(int j = 0; j < game->mCol; j++)
         {
             switch(game->gameMap[i][j].curState)
             {
-            // 根据不同的方块状态绘制，算出在bmp中的偏移量
+
             case UN_DIG:
                 painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY , bmpBlocks, blockSize * 10, 0, blockSize, blockSize);
                 break;
@@ -109,12 +112,12 @@ void sec_window::paintEvent(QPaintEvent *event)
             case WRONG_BOMB:
                 if(game->gameState == PLAYING || game->gameState == FAULT)
                 {
-                    // 如果还在游戏中就显示旗子
+
                     painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 11, 0, blockSize, blockSize);
                 }
                 else if(game->gameState == OVER)
                 {
-                    // 如果游戏已经结束，就显示标错了
+
                     painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 12, 0, blockSize, blockSize);
                 }
                 break;
@@ -123,10 +126,53 @@ void sec_window::paintEvent(QPaintEvent *event)
             }
         }
     }
-//    // 处理游戏状态
+
 //    handleGameState(game);
 }
 
+void sec_window::mousePressEvent(QMouseEvent *event)
+{
+    if(event->y() < spaceY + offsetY)
+    {
+        int x = event->x();
+        int y = event->y();
+
+        if(x >= (game->mCol * blockSize + offsetX * 2) / 2 - 12
+            && x <= (game->mCol * blockSize + offsetX * 2) / 2 + 12
+            && y >= spaceY / 2
+            && y <= spaceY / 2 + 24)
+        {
+            game->restartGame();
+            timer->start(1000);
+            timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
+            update();
+        }
+    }
+    else if(game->gameState != OVER && game->gameState != WIN)
+    {
+
+        int px = event->x() - offsetX;
+        int py = event->y() - offsetY - spaceY;
+
+        int row = py / blockSize;
+        int col = px / blockSize;
+
+        switch(event->button())
+        {
+        case Qt::LeftButton:
+            game->digMine(row, col);
+            update();
+            break;
+        case Qt::RightButton:
+            game->markMine(row, col);
+            update();
+            break;
+        default:
+            break;
+        }
+    }
+
+}
 sec_window::~sec_window()
 {
     delete ui;
@@ -144,29 +190,47 @@ void sec_window::back()
     parent->show();
 
 }
-void  sec_window::createMenus()
-{
 
-    QMainWindow win;
-    QMenu * menuFile = new QMenu("&File",win.menuBar());
-
-    QAction * newAction = new QAction("new", menuFile);
-    QAction * exitAction = new QAction("exit", menuFile);
-
-    menuFile->addActions(QList<QAction *>()<<newAction<<exitAction);
-    win.menuBar()->addAction(menuFile->menuAction());
-}
-#ifndef QT_NO_CONTEXTMENU
-void sec_window::contextMenuEvent(QContextMenuEvent *event)
-{
-    QMenu menu(this);
-
-    menu.addAction(backgo);
-    menu.exec(event->globalPos());
-}
-#endif // QT_NO_CONTEXTMENU
 void sec_window::restart()
 {
+
+}
+
+
+void sec_window::on_pushButton_3_clicked()
+{
+
+        qDebug() << "basic";
+        game->createGame(8, 10, 15, BASIC);
+        timer->start(1000);
+        timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
+        timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);
+        setFixedSize(game->mCol * blockSize + offsetX * 2, game->mRow * blockSize + offsetY * 2 + spaceY);
+
+}
+
+
+void sec_window::on_pushButton_4_clicked()
+{
+
+        qDebug() << "medium";
+        game->createGame(15, 20, 50, MEDIUM);
+        timer->start(1000);
+        timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
+        timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);
+        setFixedSize(game->mCol * blockSize + offsetX * 2, game->mRow * blockSize + offsetY * 2 + spaceY);
+}
+
+void sec_window::on_pushButton_2_clicked()
+{
+
+            qDebug() << "hard";
+            game->createGame(20, 30, 100, HARD);
+
+        timer->start(1000);
+        timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
+        timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);
+        setFixedSize(game->mCol * blockSize + offsetX * 2, game->mRow * blockSize + offsetY * 2 + spaceY);
 
 }
 
