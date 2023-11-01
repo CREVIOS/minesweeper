@@ -11,32 +11,17 @@
 
 #include <QStatusBar>
 const int blockSize = 20;
-const int offsetX = 5;
-const int offsetY = 5;
-const int spaceY = 70;
+const int offsetX = 55;//boundary
+const int offsetY = 25;// block game boundary
+const int spaceY = 60;//timer,smile ,menu space
 
 sec_window::sec_window(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::sec_window)
 {
     ui->setupUi(this);
-    setWindowTitle("MineSweeper");
-    QWidget *topFiller = new QWidget;
-    topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    infoLabel = new QLabel(tr("<i>Choose a menu option, or right-click to "
-                              "invoke a context menu</i>"));
-    infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
-    infoLabel->setAlignment(Qt::AlignCenter);
+    setWindowTitle("MineSweeper with Treasure Hunt");
 
-    QWidget *bottomFiller = new QWidget;
-    bottomFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    QString message = tr("A context menu is available by right-clicking");
-//    QStatusBar::statusBar()->showMessage(message);
-
-    setWindowTitle(tr("Menus"));
-    setMinimumSize(160, 160);
-    resize(480, 320);
     timeLabel = new QLabel(this);
 
     timer = new QTimer(this);
@@ -44,7 +29,7 @@ sec_window::sec_window(QWidget *parent) :
 
     game = new GameModel;
     game->createGame();
-    setFixedSize(game->mCol * blockSize + offsetX * 2, game->mRow * blockSize + offsetY * 2 + spaceY);
+    setFixedSize(game->mCol * blockSize  + offsetX * 2, game->mRow * blockSize + offsetY * 2 + spaceY);
     timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);
     timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
     timer->start(1000);
@@ -201,7 +186,7 @@ void sec_window::on_pushButton_3_clicked()
 {
 
         qDebug() << "basic";
-        game->createGame(8, 10, 15, BASIC);
+        game->createGame(10, 10, 10, BASIC);
         timer->start(1000);
         timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
         timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);
@@ -214,7 +199,7 @@ void sec_window::on_pushButton_4_clicked()
 {
 
         qDebug() << "medium";
-        game->createGame(15, 20, 50, MEDIUM);
+        game->createGame(15, 15, 40, MEDIUM);
         timer->start(1000);
         timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");
         timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);
@@ -225,7 +210,7 @@ void sec_window::on_pushButton_2_clicked()
 {
 
             qDebug() << "hard";
-            game->createGame(20, 30, 100, HARD);
+            game->createGame(25, 25, 100, HARD);
 
         timer->start(1000);
         timeLabel->setText("Time: " + QString::number(game->timerSeconds) + " s");

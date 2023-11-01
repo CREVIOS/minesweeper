@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
 MainWindow::~MainWindow()
@@ -14,7 +15,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-// i ahdaehfiuesg
+
 void MainWindow::on_pushButton_clicked()
 {
 
