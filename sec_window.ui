@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>469</width>
+    <height>364</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,41 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>75</width>
+     <width>51</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 1px solid #ADD8E6;
+border-bottom: 1px solid #ADD8E6;
+}
+QPushButton:enabled{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:pressed{
+background-color: #000080;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
    </property>
    <property name="text">
     <string>Back</string>
@@ -29,11 +61,44 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>190</x>
      <y>0</y>
-     <width>75</width>
+     <width>51</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 1px solid #ADD8E6;
+border-bottom: 1px solid #ADD8E6;
+}
+QPushButton:enabled{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:pressed{
+background-color: #000080;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
    </property>
    <property name="text">
     <string>HARD</string>
@@ -42,11 +107,44 @@
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>60</x>
      <y>0</y>
-     <width>75</width>
+     <width>51</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 1px solid #ADD8E6;
+border-bottom: 1px solid #ADD8E6;
+}
+QPushButton:enabled{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:pressed{
+background-color: #000080;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
    </property>
    <property name="text">
     <string>EASY</string>
@@ -55,11 +153,44 @@
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>120</x>
      <y>0</y>
-     <width>75</width>
+     <width>61</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 1px solid #ADD8E6;
+border-bottom: 1px solid #ADD8E6;
+}
+QPushButton:enabled{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:pressed{
+background-color: #000080;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #4169e1;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
    </property>
    <property name="text">
     <string>MEDIUM</string>
