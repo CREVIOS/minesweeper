@@ -19,13 +19,16 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(HEDAR_PROJECT
+
+qt_add_executable(HEDAR_PROJECT
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         sec_window.h sec_window.cpp sec_window.ui
         game_model.h game_model.cpp
         rsc.qrc
+        about.h about.cpp about.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET HEDAR_PROJECT APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
