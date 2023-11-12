@@ -4,7 +4,6 @@
 
 #include <vector>
 
-
 enum BlockState
 {
     UN_DIG,
@@ -20,7 +19,6 @@ struct MineBlock
     int valueFlag;
 };
 
-
 enum GameState
 {
     PLAYING,
@@ -29,14 +27,12 @@ enum GameState
     WIN
 };
 
-
 enum GameLevel
 {
     BASIC,
     MEDIUM,
     HARD
 };
-
 
 const int kRow = 15;
 const int kCol = 15;
@@ -50,19 +46,18 @@ public:
     GameModel();
     virtual ~GameModel();
 public:
-    void digMine(int m, int n);
-    void markMine(int m, int n);
-    void createGame(int row = kRow, int col = kCol, int mineCount = kMineCount, GameLevel level = MEDIUM);
+    void digMine(int m, int n); // what happens after clicking a block
+    void markMine(int m, int n); // flags a block
+    void createGame(int row = kRow, int col = kCol, int mineCount = kMineCount, GameLevel level = MEDIUM); // creates a level of game
     void restartGame();
     void checkGame();
 public:
-    std::vector<std::vector<MineBlock>> gameMap;
+    std::vector<std::vector<MineBlock>> gameMap; // vector of a mineblock struct named gamemap
     int mRow;
     int mCol;
     int totalMineNumber;
-    int curMineNumber;
+    int curMineNumber; // for flaging blocks and counting remaining bombs
     int timerSeconds;
-
 
     GameState gameState;
     GameLevel gameLevel;
