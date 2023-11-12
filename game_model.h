@@ -39,8 +39,8 @@ enum GameLevel
 
 
 const int kRow = 15;
-const int kCol = 20;
-const int kMineCount = 50;
+const int kCol = 15;
+const int kMineCount = 40;
 const int kTime = 0;
 // ----------------------------------------------- //
 
