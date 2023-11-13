@@ -21,15 +21,16 @@ protected:
     virtual void paintEvent(QPaintEvent *event);
     virtual void mousePressEvent(QMouseEvent *event);
 private slots:
-    void on_pushButton_clicked();
+
     void back();
     void restart();
+    void Timer();
 
-    void on_pushButton_3_clicked();
+    void on_Button_Easy_clicked();
+    void on_Button_Medium_clicked();
+    void on_Button_Hard_clicked();
 
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_2_clicked();
+    void on_Button_Back_clicked();
 
 private:
     Ui::sec_window *ui;

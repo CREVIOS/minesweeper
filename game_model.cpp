@@ -92,9 +92,8 @@ void GameModel::digMine(int m, int n) // what happens after clicking a block
     if(gameMap[m][n].valueFlag > 0
         && gameMap[m][n].curState == UN_DIG)
     {
-        gameMap[m][n].curState = DIGGED;  // just one block is digged
+        gameMap[m][n].curState = DIGGED;  // one block is digged only if it is undigged and not marked with flag
     }
-
 
     if(gameMap[m][n].valueFlag == 0
         && gameMap[m][n].curState == UN_DIG)
@@ -110,7 +109,7 @@ void GameModel::digMine(int m, int n) // what happens after clicking a block
                     && n + x < mCol // conditions for valid block
                     && !(x == 0 && y == 0)) // it is that block itself
                 {
-                    digMine(m + y, n + x);  //several mines are digged untill valueFlag of block is not zero
+                    digMine(m + y, n + x);  //several mines are digged untill valueFlag of block is not zero or there comes a flag marked block
                 }
             }
         }
@@ -119,28 +118,20 @@ void GameModel::digMine(int m, int n) // what happens after clicking a block
     if(gameMap[m][n].valueFlag == -1) //when the block contains bomb
     {
         gameState = OVER;
-        gameMap[m][n].curState = BOMB;
+        gameMap[m][n].curState = BOMB; //values changed
     }
 
-    checkGame();
+    checkGame();//ends the game
 }
 
-void GameModel::markMine(int m, int n)
+void GameModel::markMine(int m, int n) //marking or unmarking a block
 {
-    if(gameMap[m][n].curState == UN_DIG)
+    if(gameMap[m][n].curState == UN_DIG && curMineNumber>0) //tags a block with flag
     {
-        if(gameMap[m][n].valueFlag == -1)
-        {
-            gameMap[m][n].curState = MARKED;
-        }
-        else
-        {
-            gameState = FAULT;
-            gameMap[m][n].curState = WRONG_BOMB;
-        }
-        curMineNumber--;
+        gameMap[m][n].curState = MARKED;
+        curMineNumber--;  // as flag numbers can't be bigger then total mine numbers
     }
-    else if(gameMap[m][n].curState == MARKED || gameMap[m][n].curState == WRONG_BOMB)
+    else if(gameMap[m][n].curState == MARKED) // removes flag from a block
     {
         gameMap[m][n].curState = UN_DIG;
         gameState = PLAYING;
@@ -150,19 +141,17 @@ void GameModel::markMine(int m, int n)
     checkGame();
 }
 
-void GameModel::checkGame()
+void GameModel::checkGame()//checks whether you lose or win
 {
-
     if(gameState == OVER)
     {
-
         for(int i = 0; i < mRow; i++)
         {
             for(int j = 0; j < mCol; j++)
             {
                 if(gameMap[i][j].valueFlag == -1)
                 {
-                    gameMap[i][j].curState = BOMB;
+                    gameMap[i][j].curState = BOMB;// where all bombs are ,changes curState variable from undig to bomb
                 }
             }
         }
@@ -182,7 +171,6 @@ void GameModel::checkGame()
                 }
             }
         }
-
         gameState = WIN;
     }
 }

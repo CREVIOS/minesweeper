@@ -13,7 +13,7 @@ about::~about()
     delete ui;
 }
 
-void about::on_pushButton_clicked()
+void about::on_Back_Button_clicked()
 {
     this->hide();
     QWidget *parent = this->parentWidget();

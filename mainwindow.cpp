@@ -17,8 +17,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_Start_Button_clicked()
 {
 
     QWidget *swindow = new sec_window(this);
@@ -26,15 +25,12 @@ void MainWindow::on_pushButton_clicked()
     hide();
 }
 
-
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_Quit_Button_clicked()
 {
     QCoreApplication::quit();
 }
 
-
-
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_About_Button_clicked()
 {
     QWidget *swindow = new about(this);
     swindow ->show();

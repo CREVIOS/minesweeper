@@ -21,7 +21,7 @@ color: #007dff;
 border-radius: 15px;
 }</string>
    </property>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Start_Button">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -67,7 +67,7 @@ color: #000000;
      <string>START</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="Quit_Button">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -162,7 +162,7 @@ border-radius: 15px;
      <string>    Minesweeper With Treasure Hunt</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="About_Button">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -209,10 +209,10 @@ color: #000000;
     </property>
    </widget>
    <zorder>label</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>pushButton_3</zorder>
+   <zorder>Start_Button</zorder>
+   <zorder>Quit_Button</zorder>
    <zorder>label_2</zorder>
-   <zorder>pushButton_2</zorder>
+   <zorder>About_Button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

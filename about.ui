@@ -40,7 +40,7 @@ border-radius: 15px;
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creators : &lt;/p&gt;&lt;p&gt;Tanzila Khan (25)&lt;/p&gt;&lt;p&gt;Taif Ahmed Turjo (45)&lt;/p&gt;&lt;p&gt;Amio Rashid (59)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Back_Button">
    <property name="geometry">
     <rect>
      <x>270</x>

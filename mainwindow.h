@@ -4,7 +4,6 @@
 #include <QMainWindow>
 
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -18,14 +17,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_Start_Button_clicked();
 
+    void on_Quit_Button_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_About_Button_clicked();
 
 private:
+
     bool easy =1;
     bool medium =0;
     bool hard =0;

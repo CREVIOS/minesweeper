@@ -20,7 +20,7 @@ color: #007dff;
 border-radius: 15px;
 }</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Button_Back">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -65,7 +65,7 @@ color: #000000;
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="Button_Hard">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -111,7 +111,7 @@ color: #000000;
     <string>HARD</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="Button_Easy">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -157,7 +157,7 @@ color: #000000;
     <string>EASY</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="Button_Medium">
    <property name="geometry">
     <rect>
      <x>120</x>
