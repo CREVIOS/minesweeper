@@ -78,14 +78,7 @@ void sec_window::paintEvent(QPaintEvent *event)
                 painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 9, 0, blockSize, blockSize);
                 break;
              case WRONG_BOMB:
-                if(game->gameState == PLAYING || game->gameState == FAULT)
-                {
-                    painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 11, 0, blockSize, blockSize);
-                }
-                else if(game->gameState == OVER)
-                {
-                    painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 12, 0, blockSize, blockSize);
-                }
+                painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 12, 0, blockSize, blockSize);
                 break;
              default:
                 break;
@@ -96,21 +89,6 @@ void sec_window::paintEvent(QPaintEvent *event)
 
 void sec_window::mousePressEvent(QMouseEvent *event)
 {
-//    if(event->y() < spaceY + offsetY)
-//    {
-//        int x = event->x();
-//        int y = event->y();
-
-//        if(x >= (game->mCol * blockSize + offsetX * 2) / 2 - 12
-//            && x <= (game->mCol * blockSize + offsetX * 2) / 2 + 12
-//            && y >= spaceY / 2
-//            && y <= spaceY / 2 + 24)
-//        {
-//            game->restartGame();
-//            Timer();
-//            update();
-//        }
-//    }
     if(game->gameState != OVER && game->gameState != WIN)
     {
         int px = event->x() - offsetX;

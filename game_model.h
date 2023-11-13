@@ -22,22 +22,20 @@ struct MineBlock
 enum GameState
 {
     PLAYING,
-    FAULT,
     OVER,
     WIN
 };
 
 enum GameLevel
 {
-    //BASIC,
     EASY,
     MEDIUM,
     HARD
 };
 
-const int kRow = 15;
-const int kCol = 15;
-const int kMineCount = 40;
+const int kRow = 10;
+const int kCol = 10;
+const int kMineCount = 10;
 const int kTime = 0;
 // ----------------------------------------------- //
 
@@ -49,7 +47,7 @@ public:
 public:
     void digMine(int m, int n); // what happens after clicking a block
     void markMine(int m, int n); // flags a block
-    void createGame(int row = kRow, int col = kCol, int mineCount = kMineCount, GameLevel level = MEDIUM); // creates a level of game
+    void createGame(int row = kRow, int col = kCol, int mineCount = kMineCount, GameLevel level = EASY); // creates a level of game
     void restartGame();
     void checkGame();
 public:

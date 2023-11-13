@@ -39,12 +39,11 @@ void GameModel::createGame(int row, int col, int mineCount, GameLevel level)
         gameMap.push_back(lineBlocks);//keeping values
     }
 
-
     srand((unsigned int)time(0));
     int k = totalMineNumber;
     while(k > 0)
     {
-        int pRow = rand() % mRow;
+        int pRow = rand() % mRow;  //randomizing bomb positions
         int pCol = rand() % mCol;
         if(gameMap[pRow][pCol].valueFlag != -1)
         {
@@ -89,14 +88,12 @@ void GameModel::restartGame()
 void GameModel::digMine(int m, int n) // what happens after clicking a block
 {
 
-    if(gameMap[m][n].valueFlag > 0
-        && gameMap[m][n].curState == UN_DIG)
+    if(gameMap[m][n].valueFlag > 0 && gameMap[m][n].curState == UN_DIG)
     {
         gameMap[m][n].curState = DIGGED;  // one block is digged only if it is undigged and not marked with flag
     }
 
-    if(gameMap[m][n].valueFlag == 0
-        && gameMap[m][n].curState == UN_DIG)
+    if(gameMap[m][n].valueFlag == 0 && gameMap[m][n].curState == UN_DIG)
     {
         gameMap[m][n].curState = DIGGED;// that block is digged
         for(int y = -1; y <= 1; y++)  // going across row (up,current,down)
@@ -118,10 +115,10 @@ void GameModel::digMine(int m, int n) // what happens after clicking a block
     if(gameMap[m][n].valueFlag == -1) //when the block contains bomb
     {
         gameState = OVER;
-        gameMap[m][n].curState = BOMB; //values changed
+        gameMap[m][n].curState = WRONG_BOMB; //clicked on a bomb
     }
 
-    checkGame();//ends the game
+    checkGame();  //checks if the game ends or not
 }
 
 void GameModel::markMine(int m, int n) //marking or unmarking a block
@@ -141,7 +138,7 @@ void GameModel::markMine(int m, int n) //marking or unmarking a block
     checkGame();
 }
 
-void GameModel::checkGame()//checks whether you lose or win
+void GameModel::checkGame() //checks whether you lose or win
 {
     if(gameState == OVER)
     {
@@ -149,28 +146,46 @@ void GameModel::checkGame()//checks whether you lose or win
         {
             for(int j = 0; j < mCol; j++)
             {
-                if(gameMap[i][j].valueFlag == -1)
+                if(gameMap[i][j].valueFlag == -1 && gameMap[i][j].curState != WRONG_BOMB)
                 {
-                    gameMap[i][j].curState = BOMB;// where all bombs are ,changes curState variable from undig to bomb
+                    gameMap[i][j].curState = BOMB;/* where all bombs are ,changes curState variable from undig to
+                                                     bomb except for the bomb which was clicked*/
                 }
             }
         }
         return;
     }
 
-    if(gameState != FAULT)
+    int undig_count=0;
+    int bomb_count=0;
+
+    for(int i = 0; i < mRow; i++)
     {
+        for(int j = 0; j < mCol; j++)
+        {
+            if(gameMap[i][j].curState == UN_DIG || gameMap[i][j].curState == MARKED) //remaining blocks
+            {
+                undig_count++;
+            }
+            if((gameMap[i][j].curState == UN_DIG || gameMap[i][j].curState == MARKED) && gameMap[i][j].valueFlag == -1 ) // bombs
+            {
+                bomb_count++;
+            }
+        }
+    }
+
+    if(undig_count==bomb_count)
+    {
+        gameState = WIN;
         for(int i = 0; i < mRow; i++)
         {
             for(int j = 0; j < mCol; j++)
             {
-                if(gameMap[i][j].curState == UN_DIG)
-                {
-                    gameState = PLAYING;
-                    return;
-                }
+               if(gameMap[i][j].curState == UN_DIG || gameMap[i][j].curState == MARKED)
+               {
+                  gameMap[i][j].curState = BOMB; // where all bombs are ,changes curState variable from undig to bomb
+               }
             }
         }
-        gameState = WIN;
     }
 }
