@@ -96,22 +96,22 @@ void sec_window::paintEvent(QPaintEvent *event)
 
 void sec_window::mousePressEvent(QMouseEvent *event)
 {
-    if(event->y() < spaceY + offsetY)
-    {
-        int x = event->x();
-        int y = event->y();
+//    if(event->y() < spaceY + offsetY)
+//    {
+//        int x = event->x();
+//        int y = event->y();
 
-        if(x >= (game->mCol * blockSize + offsetX * 2) / 2 - 12
-            && x <= (game->mCol * blockSize + offsetX * 2) / 2 + 12
-            && y >= spaceY / 2
-            && y <= spaceY / 2 + 24)
-        {
-            game->restartGame();
-            Timer();
-            update();
-        }
-    }
-    else if(game->gameState != OVER && game->gameState != WIN)
+//        if(x >= (game->mCol * blockSize + offsetX * 2) / 2 - 12
+//            && x <= (game->mCol * blockSize + offsetX * 2) / 2 + 12
+//            && y >= spaceY / 2
+//            && y <= spaceY / 2 + 24)
+//        {
+//            game->restartGame();
+//            Timer();
+//            update();
+//        }
+//    }
+    if(game->gameState != OVER && game->gameState != WIN)
     {
         int px = event->x() - offsetX;
         int py = event->y() - offsetY - spaceY;
