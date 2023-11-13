@@ -29,7 +29,8 @@ enum GameState
 
 enum GameLevel
 {
-    BASIC,
+    //BASIC,
+    EASY,
     MEDIUM,
     HARD
 };

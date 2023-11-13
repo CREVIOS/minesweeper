@@ -154,8 +154,8 @@ void sec_window::restart()
 
 void sec_window::on_Button_Easy_clicked()
 {
-        qDebug() << "basic";
-        game->createGame(10, 10, 10, BASIC);
+        qDebug() << "easy";
+        game->createGame(10, 10, 10, EASY);
         Timer();
 }
 
@@ -169,7 +169,7 @@ void sec_window::on_Button_Medium_clicked()
 void sec_window::on_Button_Hard_clicked()
 {
         qDebug() << "hard";
-        game->createGame(25, 25, 100, HARD);
+        game->createGame(25, 25, 80, HARD);
         Timer();
 }
 
