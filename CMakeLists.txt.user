@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< Updated upstream
-<!-- Written by QtCreator 11.0.3, 2023-11-14T10:39:45. -->
-=======
-<!-- Written by QtCreator 11.0.3, 2023-11-14T10:36:34. -->
->>>>>>> Stashed changes
+<!-- Written by QtCreator 11.0.3, 2023-11-14T10:44:08. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -179,10 +175,13 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">HEDAR_PROJECT</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.HEDAR_PROJECT</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">HEDAR_PROJECT</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/user/Desktop/Github/build-minesweeper-Qt_6_6_0_for_macOS-Debug/HEDAR_PROJECT.app/Contents/MacOS</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

@@ -119,6 +119,7 @@ void GameModel::digMine(int m, int n) // what happens after clicking a block
     {
         gameState = OVER;
         gameMap[m][n].curState = BOMB; //values changed
+        gameMap[m][n].curState = WRONG_BOMB; //clicked on a bomb
     }
 
     checkGame();//ends the game
@@ -149,28 +150,47 @@ void GameModel::checkGame()//checks whether you lose or win
         {
             for(int j = 0; j < mCol; j++)
             {
-                if(gameMap[i][j].valueFlag == -1)
+                if(gameMap[i][j].valueFlag == -1 && gameMap[i][j].curState != WRONG_BOMB)
                 {
-                    gameMap[i][j].curState = BOMB;// where all bombs are ,changes curState variable from undig to bomb
+                    gameMap[i][j].curState = BOMB;/* where all bombs are ,changes curState variable from undig to
+                                                     bomb except for the bomb which was clicked*/
                 }
             }
         }
         return;
     }
 
-    if(gameState != FAULT)
+    int undig_count=0;
+    int bomb_count=0;
+
+    for(int i = 0; i < mRow; i++)
     {
+        for(int j = 0; j < mCol; j++)
+        {
+            if(gameMap[i][j].curState == UN_DIG || gameMap[i][j].curState == MARKED) //remaining blocks
+            {
+                undig_count++;
+            }
+            if((gameMap[i][j].curState == UN_DIG || gameMap[i][j].curState == MARKED) && gameMap[i][j].valueFlag == -1 ) // bombs
+            {
+                bomb_count++;
+            }
+        }
+    }
+
+    if(undig_count==bomb_count)
+    {
+        gameState = WIN;
         for(int i = 0; i < mRow; i++)
         {
             for(int j = 0; j < mCol; j++)
             {
-                if(gameMap[i][j].curState == UN_DIG)
+                if(gameMap[i][j].curState == UN_DIG || gameMap[i][j].curState == MARKED)
                 {
-                    gameState = PLAYING;
-                    return;
+                    gameMap[i][j].curState = BOMB; // where all bombs are ,changes curState variable from undig to bomb
                 }
             }
         }
-        gameState = WIN;
     }
 }
+
