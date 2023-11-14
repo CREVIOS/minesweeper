@@ -32,6 +32,14 @@ sec_window::sec_window(QWidget *parent) :
     Timer();
 }
 
+void sec_window::updateTimer()
+{
+    if (game->gameState != OVER && game->gameState != WIN)
+    {
+        timeLabel->setText("Time: " + QString::number(++game->timerSeconds) + " s");
+    }
+}
+
 void sec_window::Timer(){
     setFixedSize(game->mCol * blockSize  + offsetX * 2, game->mRow * blockSize + offsetY * 2 + spaceY);
     timeLabel->setGeometry(game->mCol * blockSize + offsetX * 2 - 80, spaceY / 2, 80, 20);

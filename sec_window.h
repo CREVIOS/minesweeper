@@ -25,7 +25,7 @@ private slots:
     void back();
 //    void restart();
     void Timer();
-
+    void updateTimer();
     void on_Button_Easy_clicked();
     void on_Button_Medium_clicked();
     void on_Button_Hard_clicked();
