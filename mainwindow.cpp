@@ -3,16 +3,17 @@
 #include "sec_window.h"
 #include "about.h"
 #include "ui_about.h"
-#include "game_model.h"
+#include "game_model.h" //These header files likely define the classes used in the application.
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent) /*his is the constructor for the MainWindow class, which is called when an instance of the class is created.
+                            It takes a QWidget* pointer named parent as an argument, representing the parent widget of the main window.*/
+    , ui(new Ui::MainWindow) //user interface (UI) for the main window.
 {
-    ui->setupUi(this);
+    ui->setupUi(this); //sets up the user interface for the main window,
     setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
-MainWindow::~MainWindow()
+MainWindow::~MainWindow() //destructor for the MainWindow class, which is called when an instance of the class is destroyed
 {
     delete ui;
 }
