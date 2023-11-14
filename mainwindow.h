@@ -26,9 +26,9 @@ private slots:
 
 private:
 
-//    bool easy =1;
-//    bool medium =0;
-//    bool hard =0;
+    bool easy =1;
+    bool medium =0;
+    bool hard =0;
 
     Ui::MainWindow *ui;
 };

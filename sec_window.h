@@ -23,7 +23,7 @@ protected:
 private slots:
 
     void back();
-    void restart();
+//    void restart();
     void Timer();
 
     void on_Button_Easy_clicked();
@@ -38,9 +38,9 @@ private:
     QTimer *timer;
     QLabel *timeLabel;
     QLabel *infoLabel;
-    bool easy =true;
-    bool medium =false;
-    bool hard =false;
+//    bool easy =true;
+//    bool medium =false;
+//    bool hard =false;
 
 };
 

@@ -11,8 +11,8 @@
 #include <QStatusBar>
 
 const int blockSize = 20;
-const int offsetX = 55;//boundary
-const int offsetY = 25;// block game boundary
+const int offsetX = 30;//boundary
+const int offsetY = 30;// block game boundary
 const int spaceY = 60;//timer,menu space
 
 sec_window::sec_window(QWidget *parent) :
@@ -78,14 +78,7 @@ void sec_window::paintEvent(QPaintEvent *event)
                 painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 9, 0, blockSize, blockSize);
                 break;
              case WRONG_BOMB:
-                if(game->gameState == PLAYING || game->gameState == FAULT)
-                {
-                    painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 11, 0, blockSize, blockSize);
-                }
-                else if(game->gameState == OVER)
-                {
-                    painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 12, 0, blockSize, blockSize);
-                }
+                painter.drawPixmap(j * blockSize + offsetX, i * blockSize + offsetY + spaceY, bmpBlocks, blockSize * 12, 0, blockSize, blockSize);
                 break;
              default:
                 break;
@@ -96,7 +89,8 @@ void sec_window::paintEvent(QPaintEvent *event)
 
 void sec_window::mousePressEvent(QMouseEvent *event)
 {
-    if(event->y() < spaceY + offsetY)
+
+    /*if(event->y() < spaceY + offsetY)
     {
         int x = event->x();
         int y = event->y();
@@ -111,10 +105,12 @@ void sec_window::mousePressEvent(QMouseEvent *event)
             update();
         }
     }
-    else if(game->gameState != OVER && game->gameState != WIN)
+    else */
+    if(game->gameState != OVER && game->gameState != WIN)
     {
-        int px = event->x() - offsetX;
-        int py = event->y() - offsetY - spaceY;
+        QPointF position = event->position();
+        int px = position.x() - offsetX;
+        int py = position.y() - offsetY - spaceY;
 
         int row = py / blockSize;
         int col = px / blockSize;
@@ -147,10 +143,10 @@ void sec_window::back()
      parent->show();
 }
 
-void sec_window::restart()
-{
-       //game->restartGame();
-}
+//void sec_window::restart()
+//{
+//       //game->restartGame();
+//}
 
 void sec_window::on_Button_Easy_clicked()
 {
