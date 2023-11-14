@@ -23,7 +23,7 @@ protected:
 private slots:
 
     void back();
-    void restart();
+//    void restart();
     void Timer();
 
     void on_Button_Easy_clicked();
