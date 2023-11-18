@@ -11,7 +11,7 @@
 #include <QStatusBar>
 
 const int blockSize = 20;
-const int offsetX = 30;//boundary
+const int offsetX = 55;//boundary
 const int offsetY = 30;// block game boundary
 const int spaceY = 60;//timer,menu space
 
@@ -21,15 +21,38 @@ sec_window::sec_window(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("MineSweeper with Treasure Hunt");
-
+    customLevelDialog = nullptr;
     timeLabel = new QLabel(this);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateTimer()));
 
+    connect(ui->Button_Custom, SIGNAL(triggered()), this, SLOT(showCustomLevelDialog()));
+
     game = new GameModel;
     game->createGame();
     Timer();
+}
+
+void sec_window::showCustomLevelDialog()
+{
+    if (!customLevelDialog) {
+        customLevelDialog = new customized(this);
+        connect(customLevelDialog, &customized::accepted, this, &sec_window::handleCustomLevelAccepted);
+    }
+
+    customLevelDialog->show();
+}
+
+void sec_window::handleCustomLevelAccepted()
+{
+    int rows = customLevelDialog->getRows();
+    int columns = customLevelDialog->getColumns();
+    int mines = customLevelDialog->getMines();
+
+    game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
+    Timer();
+    update();  // Refresh the display
 }
 
 void sec_window::updateTimer()
@@ -164,5 +187,50 @@ void sec_window::on_Button_Hard_clicked()
 void sec_window::on_Button_Back_clicked()
 {
         back();
+}
+
+
+void sec_window::on_Restart_Button_clicked()
+{
+        int rows,columns,mines;
+        rows=game->mRow;
+        columns=game->mCol;
+        mines=game->totalMineNumber;
+        game->createGame(rows,columns,mines,game->gameLevel);  // Or use appropriate parameters for the game restart
+        Timer();
+        update();
+}
+
+//void sec_window::showCustomLevelDialog()
+//{
+//        customLevelDialog = new customized(this);
+//        if (customLevelDialog->exec() == QDialog::Accepted)
+//        {
+//        int rows = customLevelDialog->getRows();
+//        int columns = customLevelDialog->getColumns();
+//        int mines = customLevelDialog->getMines();
+
+//        game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
+//        Timer();
+//        update();  // Refresh the display
+//        }
+//        delete customLevelDialog;
+//}
+
+
+void sec_window::on_Button_Custom_clicked()
+{
+        customLevelDialog = new customized(this);
+        if (customLevelDialog->exec() == QDialog::Accepted)
+        {
+        int rows = customLevelDialog->getRows();
+        int columns = customLevelDialog->getColumns();
+        int mines = customLevelDialog->getMines();
+
+        game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
+        Timer();
+        update();  // Refresh the display
+        }
+        delete customLevelDialog;
 }
 

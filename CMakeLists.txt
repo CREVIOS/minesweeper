@@ -29,6 +29,9 @@ qt_add_executable(HEDAR_PROJECT
         game_model.h game_model.cpp
         rsc.qrc
         about.h about.cpp about.ui
+        modewindow.h modewindow.cpp modewindow.ui
+        story.h story.cpp story.ui
+        customized.h customized.cpp customized.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET HEDAR_PROJECT APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -32,7 +32,8 @@ enum GameLevel
     //BASIC,
     EASY,
     MEDIUM,
-    HARD
+    HARD,
+    CUSTOM
 };
 
 const int kRow = 10;

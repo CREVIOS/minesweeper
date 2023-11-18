@@ -5,10 +5,10 @@ about::about(QWidget *parent) : //constructor for the about class
     QDialog(parent), //QDialog is a class in the Qt framework used to create dialog windows
     ui(new Ui::about)
 {
-    ui->setupUi(this); //s a common method used in Qt to set up the UI components for a dialog or window.
+    ui->setupUi(this); // set up the UI components for a dialog or window.
 }
 
-about::~about() //The destructor is a special member function in C++ that is automatically called when an object of a class is being destroyed
+about::~about() //destructor, is automatically called when an object of a class is being destroyed
 {
     delete ui;
 }

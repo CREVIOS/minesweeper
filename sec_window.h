@@ -5,6 +5,8 @@
 #include <QDialog>
 #include"game_model.h"
 #include "mainwindow.h"
+#include "customized.h"
+
 
 namespace Ui {
 class sec_window;
@@ -31,6 +33,12 @@ private slots:
     void on_Button_Hard_clicked();
 
     void on_Button_Back_clicked();
+    void on_Restart_Button_clicked();
+//    void on_Button_Custom_clicked();
+
+    void showCustomLevelDialog();
+    void handleCustomLevelAccepted();
+    void on_Button_Custom_clicked();
 
 private:
     Ui::sec_window *ui;
@@ -38,6 +46,7 @@ private:
     QTimer *timer;
     QLabel *timeLabel;
     QLabel *infoLabel;
+    customized *customLevelDialog;
 //    bool easy =true;
 //    bool medium =false;
 //    bool hard =false;

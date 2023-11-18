@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "sec_window.h"
+#include "modewindow.h"
 #include "about.h"
 #include "ui_about.h"
 #include "game_model.h" //These header files likely define the classes used in the application.
@@ -20,8 +21,7 @@ MainWindow::~MainWindow() //destructor for the MainWindow class, which is called
 
 void MainWindow::on_Start_Button_clicked()
 {
-
-    QWidget *swindow = new sec_window(this);
+   QWidget *swindow = new Modewindow(this);
     swindow ->show();
     hide();
 }
