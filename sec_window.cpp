@@ -15,45 +15,45 @@ const int offsetX = 55;//boundary
 const int offsetY = 30;// block game boundary
 const int spaceY = 60;//timer,menu space
 
-sec_window::sec_window(QWidget *parent) :
+sec_window::sec_window(int rows, int columns, int mines, GameLevel level_s, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::sec_window)
 {
     ui->setupUi(this);
     setWindowTitle("MineSweeper with Treasure Hunt");
-    customLevelDialog = nullptr;
+    //customLevelDialog = nullptr;
     timeLabel = new QLabel(this);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateTimer()));
 
-    connect(ui->Button_Custom, SIGNAL(triggered()), this, SLOT(showCustomLevelDialog()));
+    //(ui->Button_Custom, SIGNAL(triggered()), this, SLOT(showCustomLevelDialog()));
 
     game = new GameModel;
-    game->createGame();
+    game->createGame(rows,columns,mines, level_s);
     Timer();
 }
 
-void sec_window::showCustomLevelDialog()
-{
-    if (!customLevelDialog) {
-        customLevelDialog = new customized(this);
-        connect(customLevelDialog, &customized::accepted, this, &sec_window::handleCustomLevelAccepted);
-    }
+//void sec_window::showCustomLevelDialog()
+//{
+//    if (!customLevelDialog) {
+//        customLevelDialog = new customized(this);
+//        connect(customLevelDialog, &customized::accepted, this, &sec_window::handleCustomLevelAccepted);
+//    }
 
-    customLevelDialog->show();
-}
+//    customLevelDialog->show();
+//}
 
-void sec_window::handleCustomLevelAccepted()
-{
-    int rows = customLevelDialog->getRows();
-    int columns = customLevelDialog->getColumns();
-    int mines = customLevelDialog->getMines();
+//void sec_window::handleCustomLevelAccepted()
+//{
+//    int rows = customLevelDialog->getRows();
+//    int columns = customLevelDialog->getColumns();
+//    int mines = customLevelDialog->getMines();
 
-    game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
-    Timer();
-    update();  // Refresh the display
-}
+//    game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
+//    Timer();
+//    update();  // Refresh the display
+//}
 
 void sec_window::updateTimer()
 {
@@ -163,26 +163,26 @@ void sec_window::back()
 //       //game->restartGame();
 //}
 
-void sec_window::on_Button_Easy_clicked()
-{
-        qDebug() << "easy";
-        game->createGame(10, 10, 10, EASY);
-        Timer();
-}
+//void sec_window::on_Button_Easy_clicked()
+//{
+//        qDebug() << "easy";
+//        game->createGame(10, 10, 10, EASY);
+//        Timer();
+//}
 
-void sec_window::on_Button_Medium_clicked()
-{
-        qDebug() << "medium";
-        game->createGame(15, 15, 40, MEDIUM);
-        Timer();
-}
+//void sec_window::on_Button_Medium_clicked()
+//{
+//        qDebug() << "medium";
+//        game->createGame(15, 15, 40, MEDIUM);
+//        Timer();
+//}
 
-void sec_window::on_Button_Hard_clicked()
-{
-        qDebug() << "hard";
-        game->createGame(25, 25, 80, HARD);
-        Timer();
-}
+//void sec_window::on_Button_Hard_clicked()
+//{
+//        qDebug() << "hard";
+//        game->createGame(25, 25, 80, HARD);
+//        Timer();
+//}
 
 void sec_window::on_Button_Back_clicked()
 {
@@ -201,7 +201,10 @@ void sec_window::on_Restart_Button_clicked()
         update();
 }
 
-//void sec_window::showCustomLevelDialog()
+
+
+
+//void sec_window::on_Button_Custom_clicked()
 //{
 //        customLevelDialog = new customized(this);
 //        if (customLevelDialog->exec() == QDialog::Accepted)
@@ -216,21 +219,4 @@ void sec_window::on_Restart_Button_clicked()
 //        }
 //        delete customLevelDialog;
 //}
-
-
-void sec_window::on_Button_Custom_clicked()
-{
-        customLevelDialog = new customized(this);
-        if (customLevelDialog->exec() == QDialog::Accepted)
-        {
-        int rows = customLevelDialog->getRows();
-        int columns = customLevelDialog->getColumns();
-        int mines = customLevelDialog->getMines();
-
-        game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
-        Timer();
-        update();  // Refresh the display
-        }
-        delete customLevelDialog;
-}
 

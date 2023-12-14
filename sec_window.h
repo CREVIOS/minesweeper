@@ -17,7 +17,7 @@ class sec_window : public QDialog
     Q_OBJECT
 
 public:
-    explicit sec_window(QWidget *parent = nullptr);
+    explicit sec_window(int rows, int columns, int mines, GameLevel level_s, QWidget *parent = nullptr);
     ~sec_window();
 protected:
     virtual void paintEvent(QPaintEvent *event);
@@ -28,17 +28,17 @@ private slots:
 //    void restart();
     void Timer();
     void updateTimer();
-    void on_Button_Easy_clicked();
-    void on_Button_Medium_clicked();
-    void on_Button_Hard_clicked();
+//    void on_Button_Easy_clicked();
+//    void on_Button_Medium_clicked();
+//    void on_Button_Hard_clicked();
 
     void on_Button_Back_clicked();
     void on_Restart_Button_clicked();
 //    void on_Button_Custom_clicked();
 
-    void showCustomLevelDialog();
-    void handleCustomLevelAccepted();
-    void on_Button_Custom_clicked();
+//    void showCustomLevelDialog();
+//    void handleCustomLevelAccepted();
+//    void on_Button_Custom_clicked();
 
 private:
     Ui::sec_window *ui;

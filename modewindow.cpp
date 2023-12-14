@@ -2,6 +2,7 @@
 #include "ui_modewindow.h"
 #include "sec_window.h"
 #include "story.h"
+#include "level.h"
 
 Modewindow::Modewindow(QWidget *parent) :
     QDialog(parent),
@@ -25,7 +26,7 @@ void Modewindow::on_Story_Button_clicked()
 
 void Modewindow::on_Normal_Button_clicked()
 {
-    QWidget *swindow = new sec_window(this);
+    QWidget *swindow = new level(this);
     swindow ->show();
     hide();
 }
