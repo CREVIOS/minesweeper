@@ -10,6 +10,7 @@
 
 namespace Ui {
 class sec_window;
+class story_sec;
 }
 
 class sec_window : public QDialog
@@ -19,26 +20,19 @@ class sec_window : public QDialog
 public:
     explicit sec_window(int rows, int columns, int mines, GameLevel level_s, QWidget *parent = nullptr);
     ~sec_window();
+
 protected:
     virtual void paintEvent(QPaintEvent *event);
     virtual void mousePressEvent(QMouseEvent *event);
 private slots:
 
     void back();
-//    void restart();
     void Timer();
     void updateTimer();
-//    void on_Button_Easy_clicked();
-//    void on_Button_Medium_clicked();
-//    void on_Button_Hard_clicked();
+
 
     void on_Button_Back_clicked();
     void on_Restart_Button_clicked();
-//    void on_Button_Custom_clicked();
-
-//    void showCustomLevelDialog();
-//    void handleCustomLevelAccepted();
-//    void on_Button_Custom_clicked();
 
 private:
     Ui::sec_window *ui;
@@ -47,9 +41,37 @@ private:
     QLabel *timeLabel;
     QLabel *infoLabel;
     customized *customLevelDialog;
-//    bool easy =true;
-//    bool medium =false;
-//    bool hard =false;
+
+
+};
+
+
+class story_sec : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit story_sec(int rows, int columns, int mines, GameLevel level_s, QWidget *parent = nullptr);
+    ~story_sec();
+protected:
+    virtual void paintEvent(QPaintEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
+private slots:
+
+    void back();
+    void Timer();
+    void updateTimer();
+    void GameStart(int rows, int columns, int mines, GameLevel level_s);
+    void on_Button_Back_clicked();
+    void on_Restart_Button_clicked();
+
+private:
+    Ui::sec_window *ui;
+    GameModel *game;
+    QTimer *timer;
+    QLabel *timeLabel;
+    QLabel *infoLabel;
+    customized *customLevelDialog;
 
 };
 
