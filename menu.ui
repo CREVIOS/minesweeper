@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Modewindow</class>
- <widget class="QDialog" name="Modewindow">
+ <class>menu</class>
+ <widget class="QDialog" name="menu">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,18 +13,65 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="Story_Button">
+  <widget class="QPushButton" name="newgame_Button">
    <property name="geometry">
     <rect>
-     <x>129</x>
+     <x>120</x>
+     <y>80</y>
+     <width>151</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Georgia</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
+}
+QPushButton:enabled{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:pressed{
+background-color: #040273;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>New Game</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="about_Button">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
      <y>130</y>
-     <width>121</width>
+     <width>151</width>
      <height>32</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <family>Georgia</family>
+     <pointsize>16</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -55,82 +102,99 @@ color: #000000;
 </string>
    </property>
    <property name="text">
-    <string>Story</string>
+    <string>High Score</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Normal_Button">
+  <widget class="QPushButton" name="About_Button">
    <property name="geometry">
     <rect>
-     <x>129</x>
-     <y>180</y>
-     <width>121</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{ 
-border-radius: 15px;
-border-right: 3px solid #003366;
-border-bottom: 3px solid #003366;
-}
-QPushButton:enabled{
-background-color: #0059b3;
-color: white;
-}
-QPushButton:pressed{
-background-color: #040273;
-color: white;
-}
-QPushButton:hover:!pressed{
-background-color: #0059b3;
-color: white;
-}
-QPushButton:disabled{
-background-color: #87CEEB;
-color: #000000;
-}
-
-
-</string>
-   </property>
-   <property name="text">
-    <string>Normal</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>60</y>
-     <width>141</width>
+     <x>120</x>
+     <y>190</y>
+     <width>151</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Baskerville</family>
-     <pointsize>26</pointsize>
+     <family>Georgia</family>
+     <pointsize>14</pointsize>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{ 
-background-color: #FFFFFF;
-color: #007dff;
+    <string notr="true">QPushButton{ 
 border-radius: 15px;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
+}
+QPushButton:enabled{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:pressed{
+background-color: #040273;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
 }
 
 
 </string>
    </property>
    <property name="text">
-    <string>      Mode</string>
+    <string>ABOUT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Quit_Button">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>240</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Georgia</family>
+     <pointsize>14</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
+}
+QPushButton:enabled{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:pressed{
+background-color: #040273;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>QUIT</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Back_Button">

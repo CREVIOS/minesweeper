@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>692</width>
     <height>600</height>
    </rect>
   </property>
@@ -24,27 +24,27 @@ border-radius: 15px;
    <widget class="QPushButton" name="Start_Button">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>180</y>
-      <width>151</width>
-      <height>31</height>
+      <x>270</x>
+      <y>440</y>
+      <width>171</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Georgia</family>
-      <pointsize>14</pointsize>
+      <pointsize>20</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 1px solid #05014a;
+border-bottom: 1px solid #05014a;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0006b1;
 color: white;
 }
 QPushButton:pressed{
@@ -52,7 +52,7 @@ background-color: #000080;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0006b1;
 color: white;
 }
 QPushButton:disabled{
@@ -64,69 +64,23 @@ color: #000000;
 </string>
     </property>
     <property name="text">
-     <string>START</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Quit_Button">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>280</y>
-      <width>151</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Georgia</family>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{ 
-border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
-}
-QPushButton:enabled{
-background-color: #4169e1;
-color: white;
-}
-QPushButton:pressed{
-background-color: #000080;
-color: white;
-}
-QPushButton:hover:!pressed{
-background-color: #4169e1;
-color: white;
-}
-QPushButton:disabled{
-background-color: #87CEEB;
-color: #000000;
-}
-
-
-</string>
-    </property>
-    <property name="text">
-     <string>QUIT</string>
+     <string>PLAY</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>20</y>
-      <width>691</width>
-      <height>361</height>
+      <x>-10</x>
+      <y>0</y>
+      <width>711</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.jpg</pixmap>
+     <pixmap>../../GitHub/minesweeper/res/bg.bmp</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -135,8 +89,8 @@ color: #000000;
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>20</y>
+      <x>80</x>
+      <y>0</y>
       <width>501</width>
       <height>41</height>
      </rect>
@@ -162,65 +116,17 @@ border-radius: 15px;
      <string>    Minesweeper With Treasure Hunt</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="About_Button">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>230</y>
-      <width>151</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Georgia</family>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{ 
-border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
-}
-QPushButton:enabled{
-background-color: #4169e1;
-color: white;
-}
-QPushButton:pressed{
-background-color: #000080;
-color: white;
-}
-QPushButton:hover:!pressed{
-background-color: #4169e1;
-color: white;
-}
-QPushButton:disabled{
-background-color: #87CEEB;
-color: #000000;
-}
-
-
-</string>
-    </property>
-    <property name="text">
-     <string>ABOUT</string>
-    </property>
-   </widget>
    <zorder>label</zorder>
    <zorder>Start_Button</zorder>
-   <zorder>Quit_Button</zorder>
    <zorder>label_2</zorder>
-   <zorder>About_Button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>36</height>
+     <width>692</width>
+     <height>24</height>
     </rect>
    </property>
   </widget>

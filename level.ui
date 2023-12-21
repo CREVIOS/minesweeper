@@ -13,6 +13,13 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{ 
+background-color: 	#b9e3f7 ;
+color: #007dff;
+border-radius: 15px;
+}</string>
+  </property>
   <widget class="QPushButton" name="Easy">
    <property name="geometry">
     <rect>
@@ -32,19 +39,19 @@
    <property name="styleSheet">
     <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:pressed{
-background-color: #000080;
+background-color: #040273;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:disabled{
@@ -78,19 +85,19 @@ color: #000000;
    <property name="styleSheet">
     <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:pressed{
-background-color: #000080;
+background-color: #040273;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:disabled{
@@ -124,19 +131,19 @@ color: #000000;
    <property name="styleSheet">
     <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:pressed{
-background-color: #000080;
+background-color: #040273;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:disabled{
@@ -170,19 +177,19 @@ color: #000000;
    <property name="styleSheet">
     <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:pressed{
-background-color: #000080;
+background-color: #040273;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:disabled{
@@ -195,6 +202,45 @@ color: #000000;
    </property>
    <property name="text">
     <string>Custom</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Back_Button">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 1px solid #05014a;
+border-bottom: 1px solid #05014a;
+}
+QPushButton:enabled{
+background-color: #0066cc;
+color: white;
+}
+QPushButton:pressed{
+background-color: #000080;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #0066cc;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
    </property>
   </widget>
  </widget>

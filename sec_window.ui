@@ -38,11 +38,11 @@ border-radius: 15px;
    <property name="styleSheet">
     <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 1px solid #05014a;
+border-bottom: 1px solid #05014a;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0066cc;
 color: white;
 }
 QPushButton:pressed{
@@ -50,7 +50,7 @@ background-color: #000080;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0066cc;
 color: white;
 }
 QPushButton:disabled{
@@ -83,11 +83,11 @@ color: #000000;
    <property name="styleSheet">
     <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 1px solid #05014a;
+border-bottom: 1px solid #05014a;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0066cc;
 color: white;
 }
 QPushButton:pressed{
@@ -95,7 +95,7 @@ background-color: #000080;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0066cc;
 color: white;
 }
 QPushButton:disabled{

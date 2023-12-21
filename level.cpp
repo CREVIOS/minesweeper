@@ -105,3 +105,9 @@ void level::on_Custom_clicked()
     hide();
 }
 
+void level::on_Back_Button_clicked()
+{
+    this->hide();
+    QWidget *parent = this->parentWidget();
+    parent->show();
+}
