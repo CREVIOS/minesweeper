@@ -19,10 +19,10 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
-qt_add_resources(SOURCES rsc.qrc)
-qt_add_resources(inesweepwer_Project "images"
-    PREFIX "/images"
-    FILES blocks.bmp timenumber.bmp bg.png treasure.png)
+#qt_add_resources(SOURCES rsc.qrc)
+#qt_add_resources(inesweepwer_Project "images"
+#    PREFIX "/images"
+#    FILES blocks.bmp timenumber.bmp bg.png treasure.png)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 

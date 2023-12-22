@@ -6,25 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>490</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{ 
+background-color: 	#b9e3f7 ;
+color: #007dff;
+border-radius: 15px;
+}</string>
+  </property>
   <widget class="QPushButton" name="Story_Button">
    <property name="geometry">
     <rect>
-     <x>129</x>
-     <y>130</y>
+     <x>180</x>
+     <y>171</y>
      <width>121</width>
-     <height>32</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>17</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -61,15 +68,15 @@ color: #000000;
   <widget class="QPushButton" name="Normal_Button">
    <property name="geometry">
     <rect>
-     <x>129</x>
-     <y>180</y>
+     <x>180</x>
+     <y>241</y>
      <width>121</width>
-     <height>32</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>17</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -106,16 +113,16 @@ color: #000000;
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>60</y>
-     <width>141</width>
-     <height>31</height>
+     <x>160</x>
+     <y>80</y>
+     <width>151</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Baskerville</family>
-     <pointsize>26</pointsize>
+     <pointsize>30</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -130,7 +137,7 @@ border-radius: 15px;
 </string>
    </property>
    <property name="text">
-    <string>      Mode</string>
+    <string>     Mode</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Back_Button">

@@ -6,6 +6,7 @@ highscore::highscore(QWidget *parent) :
     ui(new Ui::highscore)
 {
     ui->setupUi(this);
+    setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
 highscore::~highscore()

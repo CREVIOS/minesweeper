@@ -9,6 +9,7 @@ menu::menu(QWidget *parent) :
     ui(new Ui::menu)
 {
     ui->setupUi(this);
+    setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
 menu::~menu()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>627</width>
+    <height>586</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,10 +23,10 @@ border-radius: 15px;
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>70</y>
-     <width>191</width>
-     <height>101</height>
+     <x>30</x>
+     <y>530</y>
+     <width>401</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -37,14 +37,14 @@ border-radius: 15px;
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creators : &lt;/p&gt;&lt;p&gt;Tanzila Khan (25)&lt;/p&gt;&lt;p&gt;Taif Ahmed Turjo (45)&lt;/p&gt;&lt;p&gt;Amio Rashid (59)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creators : &lt;/p&gt;&lt;p&gt;Tanzila Khan (25), Taif Ahmed Turjo (45), Amio Rashid (59)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Back_Button">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>250</y>
+     <x>480</x>
+     <y>540</y>
      <width>100</width>
      <height>32</height>
     </rect>
@@ -83,6 +83,53 @@ color: #000000;
    </property>
    <property name="text">
     <string>BACK</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>601</width>
+     <height>511</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Baskerville</family>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="plainText">
+    <string>Game: Minesweeper Treasure Hunt
+
+You are an explorer on a quest to find hidden treasures in a mysterious land. But beware, there are dangerous mines scattered around! Your mission is to uncover the safe spots and avoid the mines.
+
+How to Play:
+1. Open the treasure map (the game board) by clicking on any square.
+2. Each square can be one of three things:
+    A number: This tells you how many mines are nearby.
+    A mine: Uh-oh! You've found a mine. Game over!
+    An empty space: Phew! No mines here. Keep going!
+3. Use the numbers as clues. They show you how many mines are in the squares around them.
+4. To help you, you can place flags on suspected mines. Right-click on a square to do this.
+5. Your goal is to uncover all the safe squares without clicking on any mines.
+
+Rules:
+1.  If you uncover a mine, the game ends. Be careful!
+2. Use the numbers wisely. They tell you where it's safe to explore.
+3. You win when you've uncovered all the safe spots. Hooray!
+
+Tips:
+1. Start by exploring the edges. Mines are often hidden in the middle.
+2. Pay attention to the numbers. They're your friends and guide you to safety.
+3. Don't rush! Take your time and enjoy the adventure.
+
+Remember:
+Minesweeper Adventure is a fun puzzle game that requires strategy and careful thinking. Happy exploring, and may you find all the treasures without stepping on any mines!</string>
    </property>
   </widget>
  </widget>

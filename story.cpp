@@ -8,6 +8,7 @@ story::story(QWidget *parent) :
     ui(new Ui::story)
 {
     ui->setupUi(this);
+    setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
 story::~story()

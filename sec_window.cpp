@@ -31,29 +31,10 @@ sec_window::sec_window(int rows, int columns, int mines, GameLevel level_s, QWid
 
     game = new GameModel;
     game->createGame(rows,columns,mines, level_s);
+    result();
     Timer();
 }
 
-//void sec_window::showCustomLevelDialog()
-//{
-//    if (!customLevelDialog) {
-//        customLevelDialog = new customized(this);
-//        connect(customLevelDialog, &customized::accepted, this, &sec_window::handleCustomLevelAccepted);
-//    }
-
-//    customLevelDialog->show();
-//}
-
-//void sec_window::handleCustomLevelAccepted()
-//{
-//    int rows = customLevelDialog->getRows();
-//    int columns = customLevelDialog->getColumns();
-//    int mines = customLevelDialog->getMines();
-
-//    game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
-//    Timer();
-//    update();  // Refresh the display
-//}
 
 void sec_window::updateTimer()
 {
@@ -120,7 +101,7 @@ void sec_window::paintEvent(QPaintEvent *event)
 
 void sec_window::mousePressEvent(QMouseEvent *event)
 {
-
+     result();
     if(game->gameState != OVER && game->gameState != WIN)
     {
         QPointF position = event->position();
@@ -158,31 +139,19 @@ void sec_window::back()
      parent->show();
 }
 
-//void sec_window::restart()
-//{
-//       //game->restartGame();
-//}
+void sec_window::result(){
 
-//void sec_window::on_Button_Easy_clicked()
-//{
-//        qDebug() << "easy";
-//        game->createGame(10, 10, 10, EASY);
-//        Timer();
-//}
+     if (game->gameState == OVER) {
+        // Show a losing message
+        //QString	text("Sorry! You lost!");
+        QMessageBox::warning(this, "", "SORRY! You Lose!");
+     }
+     if(game->gameState == WIN){
+        // Show a wining message
+        QMessageBox::warning(this, "", "BRAVO! You Win!");
+     }
+}
 
-//void sec_window::on_Button_Medium_clicked()
-//{
-//        qDebug() << "medium";
-//        game->createGame(15, 15, 40, MEDIUM);
-//        Timer();
-//}
-
-//void sec_window::on_Button_Hard_clicked()
-//{
-//        qDebug() << "hard";
-//        game->createGame(25, 25, 80, HARD);
-//        Timer();
-//}
 
 void sec_window::on_Button_Back_clicked()
 {
@@ -200,23 +169,3 @@ void sec_window::on_Restart_Button_clicked()
         Timer();
         update();
 }
-
-
-
-
-//void sec_window::on_Button_Custom_clicked()
-//{
-//        customLevelDialog = new customized(this);
-//        if (customLevelDialog->exec() == QDialog::Accepted)
-//        {
-//        int rows = customLevelDialog->getRows();
-//        int columns = customLevelDialog->getColumns();
-//        int mines = customLevelDialog->getMines();
-
-//        game->createGame(rows, columns, mines, CUSTOM);  // Use CUSTOM level
-//        Timer();
-//        update();  // Refresh the display
-//        }
-//        delete customLevelDialog;
-//}
-

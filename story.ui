@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>469</width>
-    <height>369</height>
+    <width>502</width>
+    <height>442</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -67,10 +67,10 @@ color: #000000;
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>20</y>
+     <x>190</x>
+     <y>30</y>
      <width>111</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -98,9 +98,9 @@ border-radius: 15px;
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>70</y>
-     <width>431</width>
-     <height>231</height>
+     <y>80</y>
+     <width>461</width>
+     <height>291</height>
     </rect>
    </property>
    <property name="font">
@@ -109,15 +109,22 @@ border-radius: 15px;
      <pointsize>18</pointsize>
     </font>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
    <property name="plainText">
-    <string>Once upon a time, in a cozy town, lived a curious child named Timmy. Timmy loved adventures and exploring, but he was a bit afraid of the mysterious mines scattered around his neighborhood. One day, he discovered a magical Minesweeper game that turned his fear into excitement. With each level he conquered, Timmy uncovered hidden treasures, and as a sweet reward, candies and surprises appeared magically. Join Timmy on his journey, sweep away the mines, and uncover delightful surprises in this enchanting Minesweeper treasure hunt!</string>
+    <string>Once upon a time, in a cozy town, lived a curious child named Timmy. Timmy loved adventures and exploring, but he was a bit afraid of the mysterious mines scattered around his neighborhood. 
+
+One day, he discovered a magical game that turned his fear into excitement. With each level he conquered, Timmy uncovered hidden treasures, and as a sweet reward, candies and surprises appeared magically. 
+
+Join Timmy on his journey, sweep away the mines, and uncover delightful surprises in this enchanting Minesweeper treasure hunt!</string>
    </property>
   </widget>
   <widget class="QPushButton" name="start_Button">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>320</y>
+     <x>200</x>
+     <y>390</y>
      <width>100</width>
      <height>32</height>
     </rect>

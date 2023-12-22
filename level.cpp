@@ -9,6 +9,7 @@ level::level(QWidget *parent) :
     ui(new Ui::level)
 {
     ui->setupUi(this);
+    setWindowTitle("Minesweeper with Treasure Hunt");
     customLevelDialog = nullptr;
 
     connect(ui->Custom, SIGNAL(triggered()), this, SLOT(showCustomLevelDialog()));

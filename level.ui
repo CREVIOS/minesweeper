@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>491</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,16 +23,16 @@ border-radius: 15px;
   <widget class="QPushButton" name="Easy">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>50</y>
+     <x>170</x>
+     <y>120</y>
      <width>151</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Georgia</family>
-     <pointsize>14</pointsize>
+     <pointsize>16</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -69,16 +69,16 @@ color: #000000;
   <widget class="QPushButton" name="meidum">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>110</y>
+     <x>170</x>
+     <y>180</y>
      <width>151</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Georgia</family>
-     <pointsize>14</pointsize>
+     <pointsize>16</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -115,16 +115,16 @@ color: #000000;
   <widget class="QPushButton" name="hard">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>170</y>
+     <x>170</x>
+     <y>240</y>
      <width>151</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Georgia</family>
-     <pointsize>14</pointsize>
+     <pointsize>16</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -161,16 +161,16 @@ color: #000000;
   <widget class="QPushButton" name="Custom">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>220</y>
+     <x>170</x>
+     <y>300</y>
      <width>151</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Georgia</family>
-     <pointsize>14</pointsize>
+     <pointsize>16</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -241,6 +241,36 @@ color: #000000;
    </property>
    <property name="text">
     <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>40</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Baskerville</family>
+     <pointsize>30</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{ 
+background-color: #FFFFFF;
+color: #007dff;
+border-radius: 15px;
+}
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>     Level</string>
    </property>
   </widget>
  </widget>

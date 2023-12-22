@@ -7,6 +7,7 @@ customized::customized(QWidget *parent) :
     ui(new Ui::customized)
 {
     ui->setupUi(this);
+    setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
 customized::~customized()

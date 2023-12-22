@@ -50,13 +50,28 @@ void story_sec::updateTimer()
     }
     else if(game->gameState == WIN && game->gameLevel==HARD ){
        //treasure korte hobe
+        result();
         QWidget *swindow = new Treasure(this);
         swindow ->show();
         hide();
     }
     else if(game->gameState != WIN){
 
+        result();
         GameStart(10,10,10,EASY);
+    }
+}
+
+void story_sec::result(){
+
+    if (game->gameState == OVER) {
+        // Show a losing message
+        //QString	text("Sorry! You lost!");
+        QMessageBox::warning(this, "", "SORRY! You Lose!");
+    }
+    if(game->gameState == WIN){
+        // Show a wining message
+        QMessageBox::warning(this, "", "BRAVO! You Win!");
     }
 }
 

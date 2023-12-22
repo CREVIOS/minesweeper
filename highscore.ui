@@ -13,11 +13,18 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{ 
+background-color: 	#b9e3f7 ;
+color: #007dff;
+border-radius: 15px;
+}</string>
+  </property>
   <widget class="QPushButton" name="Back_Button">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>70</y>
+     <x>0</x>
+     <y>10</y>
      <width>71</width>
      <height>21</height>
     </rect>

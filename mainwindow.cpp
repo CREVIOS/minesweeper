@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this); //sets up the user interface for the main window,
     setWindowTitle("Minesweeper with Treasure Hunt");
-    QPixmap bkgnd("/Users/user/Desktop/GitHub/minesweeper/res/bg.png");
+    QPixmap bkgnd("/Users/user/Desktop/GitHub/minesweeper/res/bg.bmp");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);

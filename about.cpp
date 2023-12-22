@@ -6,6 +6,7 @@ about::about(QWidget *parent) : //constructor for the about class
     ui(new Ui::about)
 {
     ui->setupUi(this); // set up the UI components for a dialog or window.
+    setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
 about::~about() //destructor, is automatically called when an object of a class is being destroyed

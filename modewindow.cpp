@@ -9,6 +9,7 @@ Modewindow::Modewindow(QWidget *parent) :
     ui(new Ui::Modewindow)
 {
     ui->setupUi(this);
+    setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
 Modewindow::~Modewindow()

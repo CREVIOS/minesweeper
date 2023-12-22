@@ -29,7 +29,7 @@ private slots:
     void back();
     void Timer();
     void updateTimer();
-
+    void result();
 
     void on_Button_Back_clicked();
     void on_Restart_Button_clicked();
@@ -64,6 +64,7 @@ private slots:
     void GameStart(int rows, int columns, int mines, GameLevel level_s);
     void on_Button_Back_clicked();
     void on_Restart_Button_clicked();
+    void result();
 
 private:
     Ui::sec_window *ui;
