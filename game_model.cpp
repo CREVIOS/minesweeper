@@ -192,15 +192,6 @@ void GameModel::checkGame()//checks whether you lose or win
                 }
             }
         }
-//        if (gameState == OVER) {
-//            // Show a losing message
-//            //QString	text("Sorry! You lost!");
-//            QMessageBox::warning(this, "SORRY!", "You Lose!");
-//        }
-//        if(gameState == WIN){
-//            // Show a wining message
-//            QMessageBox::warning(this, "BRAVO!", "You Win!");
-//        }
     }
 }
 

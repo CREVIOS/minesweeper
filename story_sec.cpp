@@ -21,14 +21,9 @@ story_sec::story_sec(int rows, int columns, int mines, GameLevel level_s, QWidge
 {
     ui->setupUi(this);
     setWindowTitle("MineSweeper with Treasure Hunt");
-    //customLevelDialog = nullptr;
     timeLabel = new QLabel(this);
-
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateTimer()));
-
-    //(ui->Button_Custom, SIGNAL(triggered()), this, SLOT(showCustomLevelDialog()));
-
     game = new GameModel;
     game->createGame(rows,columns,mines, level_s);
     Timer();
@@ -40,25 +35,24 @@ void story_sec::updateTimer()
     {
         timeLabel->setText("Time: " + QString::number(++game->timerSeconds) + " s");
     }
-    else if(game->gameState == WIN && game->gameLevel==EASY ){
 
-        GameStart(13,13,5,MEDIUM);
+    if(game->gameState == WIN && game->gameLevel==EASY ){
+
+        GameStart(12,12,40,MEDIUM);
     }
     else if(game->gameState == WIN && game->gameLevel==MEDIUM ){
 
-        GameStart(17,17,70,HARD);
+        GameStart(15,15,60,HARD);
     }
     else if(game->gameState == WIN && game->gameLevel==HARD ){
-       //treasure korte hobe
         result();
         QWidget *swindow = new Treasure(this);
         swindow ->show();
         hide();
     }
-    else if(game->gameState != WIN){
-
+    else if(game->gameState == OVER){
         result();
-        GameStart(10,10,10,EASY);
+        GameStart(9,9,10,EASY);
     }
 }
 
@@ -66,7 +60,6 @@ void story_sec::result(){
 
     if (game->gameState == OVER) {
         // Show a losing message
-        //QString	text("Sorry! You lost!");
         QMessageBox::warning(this, "", "SORRY! You Lose!");
     }
     if(game->gameState == WIN){
@@ -132,7 +125,6 @@ void story_sec::paintEvent(QPaintEvent *event)
 
 void story_sec::mousePressEvent(QMouseEvent *event)
 {
-
     if(game->gameState != OVER && game->gameState != WIN)
     {
         QPointF position = event->position();
@@ -158,23 +150,11 @@ void story_sec::mousePressEvent(QMouseEvent *event)
     }
 }
 
-story_sec::~story_sec()
-{
-    delete ui;
-}
-
-void story_sec::back()
+void story_sec::on_Button_Back_clicked()
 {
     this->hide();
     QWidget *parent = this->parentWidget();
     parent->show();
-}
-
-
-
-void story_sec::on_Button_Back_clicked()
-{
-    back();
 }
 
 void story_sec::GameStart(int rows, int columns, int mines, GameLevel level_s){
@@ -183,6 +163,7 @@ void story_sec::GameStart(int rows, int columns, int mines, GameLevel level_s){
     Timer();
     update();
 }
+
 void story_sec::on_Restart_Button_clicked()
 {
     int rows,columns,mines;
@@ -194,7 +175,10 @@ void story_sec::on_Restart_Button_clicked()
     update();
 }
 
-
+story_sec::~story_sec()
+{
+    delete ui;
+}
 
 
 

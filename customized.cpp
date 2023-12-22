@@ -10,11 +10,6 @@ customized::customized(QWidget *parent) :
     setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
-customized::~customized()
-{
-    delete ui;
-}
-
 int customized::getRows() const
 {
    return ui->spinRow->value();
@@ -27,12 +22,6 @@ int customized::getColumns() const
 
 int customized::getMines() const
 {
-//   int r=getRows();
-//   int c=getColumns();
-//   int check=ui->spinMine->value();
-//   while(check<=(int)(r*c*0.15)){
-//       check=ui->spinMine->value();
-//   }
    return ui->spinMine->value();
 }
 
@@ -52,8 +41,8 @@ void customized::on_Done_Button_clicked()
    }
 }
 
-//void customized::on_Done_Button_clicked()
-//{
-//   close();
-//}
+customized::~customized()
+{
+   delete ui;
+}
 

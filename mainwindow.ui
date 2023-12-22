@@ -24,8 +24,8 @@ border-radius: 15px;
    <widget class="QPushButton" name="Start_Button">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>440</y>
+      <x>240</x>
+      <y>420</y>
       <width>171</width>
       <height>41</height>
      </rect>
@@ -71,9 +71,9 @@ color: #000000;
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>30</y>
+      <y>40</y>
       <width>661</width>
-      <height>551</height>
+      <height>501</height>
      </rect>
     </property>
     <property name="text">
@@ -89,8 +89,8 @@ color: #000000;
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>10</y>
+      <x>70</x>
+      <y>0</y>
       <width>501</width>
       <height>41</height>
      </rect>

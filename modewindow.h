@@ -17,9 +17,7 @@ public:
 
 private slots:
     void on_Story_Button_clicked();
-
     void on_Normal_Button_clicked();
-
     void on_Back_Button_clicked();
 
 private:

@@ -20,8 +20,6 @@ public:
 
 private slots:
     void on_Back_Button_clicked();
-    //void on_Start_Button_clicked(); // Corrected slot name
-    //void on_About_Button_clicked();
     void on_start_Button_clicked();
 
 private:

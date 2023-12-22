@@ -17,20 +17,10 @@ public:
     ~MainWindow();
 
 private slots:
-
     void on_Start_Button_clicked();
-   // void resizeEvent(QResizeEvent evt);
 
-//    void on_Quit_Button_clicked();
-
-//    void on_About_Button_clicked();
 
 private:
-
-//    bool easy =1;
-//    bool medium =0;
-//    bool hard =0;
-
     Ui::MainWindow *ui;
 
 };

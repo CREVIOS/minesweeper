@@ -41,6 +41,11 @@ qt_add_executable(Minesweepwer_Project
         menu.h menu.cpp menu.ui
         highscore.h highscore.cpp highscore.ui
         treasure.h treasure.cpp treasure.ui
+        Easy.txt
+        Hard.txt
+        Medium.txt
+        Custom.txt
+        resource.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Minesweepwe_Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

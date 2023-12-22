@@ -6,9 +6,12 @@
 #include<qmenubar.h>
 #include "sec_window.h"
 #include "ui_sec_window.h"
-#include "mainwindow.h"
 #include "game_model.h"
 #include <QStatusBar>
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+using namespace std;
 
 const int blockSize = 20;
 const int offsetX = 55;//boundary
@@ -21,20 +24,15 @@ sec_window::sec_window(int rows, int columns, int mines, GameLevel level_s, QWid
 {
     ui->setupUi(this);
     setWindowTitle("MineSweeper with Treasure Hunt");
-    //customLevelDialog = nullptr;
-    timeLabel = new QLabel(this);
 
+    timeLabel = new QLabel(this);
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateTimer()));
 
-    //(ui->Button_Custom, SIGNAL(triggered()), this, SLOT(showCustomLevelDialog()));
-
     game = new GameModel;
     game->createGame(rows,columns,mines, level_s);
-    result();
     Timer();
 }
-
 
 void sec_window::updateTimer()
 {
@@ -101,7 +99,6 @@ void sec_window::paintEvent(QPaintEvent *event)
 
 void sec_window::mousePressEvent(QMouseEvent *event)
 {
-     result();
     if(game->gameState != OVER && game->gameState != WIN)
     {
         QPointF position = event->position();
@@ -125,39 +122,28 @@ void sec_window::mousePressEvent(QMouseEvent *event)
             break;
         }
     }
-}
-
-sec_window::~sec_window()
-{
-    delete ui;
-}
-
-void sec_window::back()
-{
-     this->hide();
-     QWidget *parent = this->parentWidget();
-     parent->show();
+    result();
 }
 
 void sec_window::result(){
 
      if (game->gameState == OVER) {
         // Show a losing message
-        //QString	text("Sorry! You lost!");
         QMessageBox::warning(this, "", "SORRY! You Lose!");
      }
      if(game->gameState == WIN){
+        highscore();
         // Show a wining message
         QMessageBox::warning(this, "", "BRAVO! You Win!");
      }
 }
 
-
 void sec_window::on_Button_Back_clicked()
 {
-        back();
+     this->hide();
+     QWidget *parent = this->parentWidget();
+     parent->show();
 }
-
 
 void sec_window::on_Restart_Button_clicked()
 {
@@ -168,4 +154,99 @@ void sec_window::on_Restart_Button_clicked()
         game->createGame(rows,columns,mines,game->gameLevel);  // Or use appropriate parameters for the game restart
         Timer();
         update();
+}
+
+sec_window::~sec_window()
+{
+        delete ui;
+}
+
+
+//void sec_window::highscore()
+//{
+//        int time=game->timerSeconds;
+//        int array[5]={1000000000,1000000000,1000000000,1000000000,1000000000};
+//        std::fstream FileName;
+//        if(game->gameLevel==EASY){
+//            FileName.open("Easy.txt", std::ios::out | std::ios::in );
+//        }
+//        if(game->gameLevel==MEDIUM){
+//            FileName.open("Medium.txt", std::ios::out | std::ios::in );
+//        }
+//        if(game->gameLevel==HARD){
+//            FileName.open("Hard.txt", std::ios::out | std::ios::in );
+//        }
+//        if(game->gameLevel==CUSTOM){
+//            FileName.open("Custom.txt", std::ios::out | std::ios::in );
+//        }
+//        int x=0;
+//        while (x<5) {
+//          if(FileName.eof())
+//            break;
+//          FileName>>array[x];
+//          x++;
+//        }
+
+//        x=0;
+//        while (x<5) {
+//          if(array[x]>=time){
+//            int y=4;
+//            while(y>x){
+//                array[y]=array[y-1];
+//                y--;
+//               }
+//            array[y]=time;
+//            break;}
+//          x++;
+//        }
+
+//        x=0;
+//        while (x<5) {
+//          FileName<<array[x]<<" ";
+//          x++;
+//        }
+//        FileName.close();
+
+//}
+
+
+void sec_window::highscore(){
+
+
+        int arr[5];
+
+        //int arrFromFile[5];
+        ifstream ifs("Easy.txt");
+//        if (!ifs.is_open())
+//        cout << "File isn`t opened!";
+//        else
+//        {
+        string line;
+        string str = "";
+        getline(ifs, line, '\n');
+        int k= 0;
+        for (int i = 0; i < line.size(); i++)
+        {
+            if (line[i] == ' ')
+            {
+                arr[k++] = stoi(str);
+                str = "";
+            }
+            else
+                str += line[i];
+        }
+       // }
+        ifs.close();
+        ofstream of;
+        of.open("Easy.txt");
+        //        if (!of.is_open())
+        //        cout << "File isn`t opened!";
+        //        else
+        //        {
+        for (int i = 0; i < 5; i++)
+        {
+        of << arr[i] << " ";
+        }
+        // }
+        of.close();
 }

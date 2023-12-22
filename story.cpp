@@ -11,11 +11,6 @@ story::story(QWidget *parent) :
     setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
-story::~story()
-{
-    delete ui;
-}
-
 void story::on_Back_Button_clicked()
 {
     this->hide();
@@ -25,8 +20,8 @@ void story::on_Back_Button_clicked()
 
 void story::on_start_Button_clicked()
 {
-    int rows = 10;
-    int columns = 10;
+    int rows = 9;
+    int columns = 9;
     int mines = 10;
     GameLevel level_s = EASY;
 
@@ -34,4 +29,9 @@ void story::on_start_Button_clicked()
     QWidget *swindow = new story_sec(rows, columns, mines, level_s, this);
     swindow->show();
     hide();
+}
+
+story::~story()
+{
+    delete ui;
 }

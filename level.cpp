@@ -11,9 +11,7 @@ level::level(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle("Minesweeper with Treasure Hunt");
     customLevelDialog = nullptr;
-
     connect(ui->Custom, SIGNAL(triggered()), this, SLOT(showCustomLevelDialog()));
-
 }
 
 void level::showCustomLevelDialog()
@@ -22,7 +20,6 @@ void level::showCustomLevelDialog()
         customLevelDialog = new customized(this);
         connect(customLevelDialog, &customized::accepted, this, &level::handleCustomLevelAccepted);
     }
-
     customLevelDialog->show();
 }
 
@@ -37,22 +34,16 @@ void level::handleCustomLevelAccepted()
     hide();
 }
 
-level::~level()
-{
-    delete ui;
-}
-
 void level::on_Easy_clicked()
 {
     int rows = 10;
     int columns = 10;
-    int mines =10;
+    int mines =3;
     GameLevel level_s = EASY;
     QWidget *swindow = new sec_window(rows,columns,mines, level_s,this);
     swindow ->show();
     hide();
 }
-
 
 void level::on_meidum_clicked()
 {
@@ -60,11 +51,6 @@ void level::on_meidum_clicked()
     int columns = 15;
     int mines = 40;
     GameLevel level_so = MEDIUM;
-//    kRow = rows;
-//    kCol = columns;
-//    kMineCount = mines ;
-//    kTime = 0;
-//    level_s = level_so;
     sec_window* gameWindow = new sec_window(rows, columns, mines, level_so, this);
     gameWindow->show();
     hide();
@@ -82,10 +68,8 @@ void level::on_hard_clicked()
     hide();
 }
 
-
 void level::on_Custom_clicked()
 {
-
     int rows ;
     int columns ;
     int mines ;
@@ -111,4 +95,9 @@ void level::on_Back_Button_clicked()
     this->hide();
     QWidget *parent = this->parentWidget();
     parent->show();
+}
+
+level::~level()
+{
+    delete ui;
 }

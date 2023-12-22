@@ -19,13 +19,9 @@ public:
 private slots:
 
     void on_newgame_Button_clicked();
-
     void on_highscore_Button_clicked();
-
     void on_Quit_Button_clicked();
-
     void on_About_Button_clicked();
-
     void on_Back_Button_clicked();
 
 private:

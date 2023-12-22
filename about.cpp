@@ -9,11 +9,6 @@ about::about(QWidget *parent) : //constructor for the about class
     setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
-about::~about() //destructor, is automatically called when an object of a class is being destroyed
-{
-    delete ui;
-}
-
 void about::on_Back_Button_clicked() //This slot function is triggered when a button with the object name "Back_Button" is clicked. This is likely the "Back" button in the "About" dialog.
 {
     this->hide();
@@ -21,3 +16,7 @@ void about::on_Back_Button_clicked() //This slot function is triggered when a bu
     parent->show();
 }
 
+about::~about() //destructor, is automatically called when an object of a class is being destroyed
+{
+    delete ui;
+}

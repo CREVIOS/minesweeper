@@ -12,11 +12,6 @@ menu::menu(QWidget *parent) :
     setWindowTitle("Minesweeper with Treasure Hunt");
 }
 
-menu::~menu()
-{
-    delete ui;
-}
-
 void menu::on_newgame_Button_clicked()
 {
     QWidget *swindow = new Modewindow(this);
@@ -47,4 +42,10 @@ void menu::on_Back_Button_clicked()
     this->hide();
     QWidget *parent = this->parentWidget();
     parent->show();
+}
+
+
+menu::~menu()
+{
+    delete ui;
 }

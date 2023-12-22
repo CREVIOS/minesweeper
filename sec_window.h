@@ -4,8 +4,11 @@
 #include <QLabel>
 #include <QDialog>
 #include"game_model.h"
-#include "mainwindow.h"
 #include "customized.h"
+#include <stdlib.h>
+#include <fstream>
+#include <iostream>
+using namespace std;
 
 
 namespace Ui {
@@ -26,11 +29,10 @@ protected:
     virtual void mousePressEvent(QMouseEvent *event);
 private slots:
 
-    void back();
     void Timer();
     void updateTimer();
     void result();
-
+    void highscore();
     void on_Button_Back_clicked();
     void on_Restart_Button_clicked();
 
@@ -41,7 +43,9 @@ private:
     QLabel *timeLabel;
     QLabel *infoLabel;
     customized *customLevelDialog;
-
+//    int time;
+//    int array[5]={1000000000,1000000000,1000000000,1000000000,1000000000};
+//    std::fstream FileName;
 
 };
 
@@ -53,12 +57,12 @@ class story_sec : public QDialog
 public:
     explicit story_sec(int rows, int columns, int mines, GameLevel level_s, QWidget *parent = nullptr);
     ~story_sec();
+
 protected:
     virtual void paintEvent(QPaintEvent *event);
     virtual void mousePressEvent(QMouseEvent *event);
-private slots:
 
-    void back();
+private slots:
     void Timer();
     void updateTimer();
     void GameStart(int rows, int columns, int mines, GameLevel level_s);

@@ -17,15 +17,12 @@ public:
 
 private slots:
     void on_Easy_clicked();
-
     void on_meidum_clicked();
-
     void on_hard_clicked();
-    void on_Back_Button_clicked();
     void on_Custom_clicked();
     void showCustomLevelDialog();
     void handleCustomLevelAccepted();
-
+    void on_Back_Button_clicked();
 
 private:
     Ui::level *ui;
