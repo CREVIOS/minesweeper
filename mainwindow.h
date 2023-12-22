@@ -19,6 +19,7 @@ public:
 private slots:
 
     void on_Start_Button_clicked();
+   // void resizeEvent(QResizeEvent evt);
 
 //    void on_Quit_Button_clicked();
 
@@ -31,5 +32,6 @@ private:
 //    bool hard =0;
 
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

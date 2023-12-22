@@ -7,6 +7,7 @@
 #include "sec_window.h"
 #include "ui_sec_window.h"
 #include "game_model.h"
+#include "treasure.h"
 #include <QStatusBar>
 
 const int blockSize = 20;
@@ -49,7 +50,9 @@ void story_sec::updateTimer()
     }
     else if(game->gameState == WIN && game->gameLevel==HARD ){
        //treasure korte hobe
-
+        QWidget *swindow = new Treasure(this);
+        swindow ->show();
+        hide();
     }
     else if(game->gameState != WIN){
 

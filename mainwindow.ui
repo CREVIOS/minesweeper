@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>692</width>
+    <width>666</width>
     <height>600</height>
    </rect>
   </property>
@@ -24,7 +24,7 @@ border-radius: 15px;
    <widget class="QPushButton" name="Start_Button">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>260</x>
       <y>440</y>
       <width>171</width>
       <height>41</height>
@@ -70,10 +70,10 @@ color: #000000;
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>0</y>
-      <width>711</width>
-      <height>591</height>
+      <x>0</x>
+      <y>30</y>
+      <width>661</width>
+      <height>551</height>
      </rect>
     </property>
     <property name="text">
@@ -90,7 +90,7 @@ color: #000000;
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>0</y>
+      <y>10</y>
       <width>501</width>
       <height>41</height>
      </rect>
@@ -125,7 +125,7 @@ border-radius: 15px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>692</width>
+     <width>666</width>
      <height>24</height>
     </rect>
    </property>

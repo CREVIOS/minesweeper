@@ -19,6 +19,10 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
+qt_add_resources(SOURCES rsc.qrc)
+qt_add_resources(inesweepwer_Project "images"
+    PREFIX "/images"
+    FILES blocks.bmp timenumber.bmp bg.png treasure.png)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
@@ -36,6 +40,7 @@ qt_add_executable(Minesweepwer_Project
         story_sec.cpp
         menu.h menu.cpp menu.ui
         highscore.h highscore.cpp highscore.ui
+        treasure.h treasure.cpp treasure.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Minesweepwe_Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

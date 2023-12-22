@@ -4,6 +4,5 @@
         <file>res/faces.bmp</file>
         <file>res/frame.bmp</file>
         <file>res/timenumber.bmp</file>
-        <file>res/background.jpg</file>
     </qresource>
 </RCC>
