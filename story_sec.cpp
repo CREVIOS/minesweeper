@@ -7,8 +7,8 @@
 #include "sec_window.h"
 #include "ui_sec_window.h"
 #include "game_model.h"
-#include "treasure.h"
 #include <QStatusBar>
+#include "story.h"
 
 const int blockSize = 20;
 const int offsetX = 55;//boundary
@@ -38,21 +38,23 @@ void story_sec::updateTimer()
 
     if(game->gameState == WIN && game->gameLevel==EASY ){
 
-        GameStart(12,12,40,MEDIUM);
+        GameStart(12,12,3,MEDIUM);
     }
     else if(game->gameState == WIN && game->gameLevel==MEDIUM ){
 
-        GameStart(15,15,60,HARD);
+        GameStart(15,15,3,HARD);
     }
     else if(game->gameState == WIN && game->gameLevel==HARD ){
         result();
-        QWidget *swindow = new Treasure(this);
+        //GameStart(9,9,3,EASY);
+        QWidget *swindow = new story(this);
         swindow ->show();
         hide();
+        game->gameLevel=EASY;
     }
     else if(game->gameState == OVER){
         result();
-        GameStart(9,9,10,EASY);
+        GameStart(9,9,3,EASY);
     }
 }
 
@@ -64,7 +66,8 @@ void story_sec::result(){
     }
     if(game->gameState == WIN){
         // Show a wining message
-        QMessageBox::warning(this, "", "BRAVO! You Win!");
+        QMessageBox::warning(this, "", "Congratulations! You have helped Timmy throughout his"
+                                       " adventurous journey and solved the hunt!");
     }
 }
 

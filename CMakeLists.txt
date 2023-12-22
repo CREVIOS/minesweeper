@@ -40,7 +40,7 @@ qt_add_executable(Minesweepwer_Project
         story_sec.cpp
         menu.h menu.cpp menu.ui
         highscore.h highscore.cpp highscore.ui
-        treasure.h treasure.cpp treasure.ui
+
         Easy.txt
         Hard.txt
         Medium.txt
