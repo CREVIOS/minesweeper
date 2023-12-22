@@ -6,7 +6,6 @@
 #include<qmenubar.h>
 #include "sec_window.h"
 #include "ui_sec_window.h"
-#include "mainwindow.h"
 #include "game_model.h"
 #include <QStatusBar>
 

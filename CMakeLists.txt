@@ -22,7 +22,7 @@ set(PROJECT_SOURCES
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
-qt_add_executable(HEDAR_PROJECT
+qt_add_executable(Minesweepwer_Project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         sec_window.h sec_window.cpp sec_window.ui
@@ -34,34 +34,36 @@ qt_add_executable(HEDAR_PROJECT
         customized.h customized.cpp customized.ui
         level.h level.cpp level.ui
         story_sec.cpp
+        menu.h menu.cpp menu.ui
+        highscore.h highscore.cpp highscore.ui
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET HEDAR_PROJECT APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET Minesweepwe_Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(HEDAR_PROJECT SHARED
+        add_library(Minesweepwer_Project SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(HEDAR_PROJECT
+        add_executable(Minesweepwer_Project
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(HEDAR_PROJECT PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Minesweepwer_Project PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.HEDAR_PROJECT)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Minesweepwe_Project)
 endif()
-set_target_properties(HEDAR_PROJECT PROPERTIES
+set_target_properties(Minesweepwer_Project PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -70,12 +72,12 @@ set_target_properties(HEDAR_PROJECT PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS HEDAR_PROJECT
+install(TARGETS Minesweepwer_Project
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(HEDAR_PROJECT)
+    qt_finalize_executable(Minesweepwer_Project)
 endif()

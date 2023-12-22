@@ -6,24 +6,157 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>469</width>
+    <height>369</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <property name="styleSheet">
+   <string notr="true">QDialog{ 
+background-color: 	#b9e3f7 ;
+color: #007dff;
+border-radius: 15px;
+}</string>
+  </property>
+  <widget class="QPushButton" name="Back_Button">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 1px solid #05014a;
+border-bottom: 1px solid #05014a;
+}
+QPushButton:enabled{
+background-color: #0066cc;
+color: white;
+}
+QPushButton:pressed{
+background-color: #000080;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #0066cc;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>0</y>
-     <width>58</width>
-     <height>16</height>
+     <y>20</y>
+     <width>111</width>
+     <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Baskerville</family>
+     <pointsize>26</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{ 
+background-color: #FFFFFF;
+color: #007dff;
+border-radius: 15px;
+}
+
+
+</string>
+   </property>
    <property name="text">
-    <string>Story</string>
+    <string>    Story</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>431</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Baskerville</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="plainText">
+    <string>Once upon a time, in a cozy town, lived a curious child named Timmy. Timmy loved adventures and exploring, but he was a bit afraid of the mysterious mines scattered around his neighborhood. One day, he discovered a magical Minesweeper game that turned his fear into excitement. With each level he conquered, Timmy uncovered hidden treasures, and as a sweet reward, candies and surprises appeared magically. Join Timmy on his journey, sweep away the mines, and uncover delightful surprises in this enchanting Minesweeper treasure hunt!</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="start_Button">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>320</y>
+     <width>100</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Baskerville</family>
+     <pointsize>15</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+border-radius: 15px;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
+}
+QPushButton:enabled{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:pressed{
+background-color: #040273;
+color: white;
+}
+QPushButton:hover:!pressed{
+background-color: #0059b3;
+color: white;
+}
+QPushButton:disabled{
+background-color: #87CEEB;
+color: #000000;
+}
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>START</string>
    </property>
   </widget>
  </widget>

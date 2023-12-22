@@ -20,9 +20,9 @@ private slots:
 
     void on_Start_Button_clicked();
 
-    void on_Quit_Button_clicked();
+//    void on_Quit_Button_clicked();
 
-    void on_About_Button_clicked();
+//    void on_About_Button_clicked();
 
 private:
 
