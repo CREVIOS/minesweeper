@@ -38,7 +38,7 @@ void level::on_Easy_clicked()
 {
     int rows = 10;
     int columns = 10;
-    int mines =3;
+    int mines = 03;
     GameLevel level_s = EASY;
     QWidget *swindow = new sec_window(rows,columns,mines, level_s,this);
     swindow ->show();
@@ -49,7 +49,7 @@ void level::on_meidum_clicked()
 {
     int rows = 15;
     int columns = 15;
-    int mines = 40;
+    int mines = 3;
     GameLevel level_so = MEDIUM;
     sec_window* gameWindow = new sec_window(rows, columns, mines, level_so, this);
     gameWindow->show();

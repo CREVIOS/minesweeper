@@ -3,7 +3,6 @@
 #include "modewindow.h"
 #include "about.h"
 #include "highscore.h"
-
 menu::menu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::menu)
@@ -19,12 +18,6 @@ void menu::on_newgame_Button_clicked()
     hide();
 }
 
-void menu::on_highscore_Button_clicked()
-{
-    QWidget *swindow = new highscore(this);
-    swindow ->show();
-    hide();
-}
 void menu::on_Quit_Button_clicked()
 {
     QCoreApplication::quit();
@@ -49,3 +42,12 @@ menu::~menu()
 {
     delete ui;
 }
+
+void menu::on_about_Button_clicked()
+{
+    QWidget *swindow = new highscore(this);
+    swindow ->show();
+    hide();
+    qDebug()<<"It's working\n";
+}
+

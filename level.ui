@@ -20,52 +20,6 @@ color: #007dff;
 border-radius: 15px;
 }</string>
   </property>
-  <widget class="QPushButton" name="Easy">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>120</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Georgia</family>
-     <pointsize>16</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{ 
-border-radius: 15px;
-border-right: 3px solid #003366;
-border-bottom: 3px solid #003366;
-}
-QPushButton:enabled{
-background-color: #0059b3;
-color: white;
-}
-QPushButton:pressed{
-background-color: #040273;
-color: white;
-}
-QPushButton:hover:!pressed{
-background-color: #0059b3;
-color: white;
-}
-QPushButton:disabled{
-background-color: #87CEEB;
-color: #000000;
-}
-
-
-</string>
-   </property>
-   <property name="text">
-    <string>Easy</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="meidum">
    <property name="geometry">
     <rect>

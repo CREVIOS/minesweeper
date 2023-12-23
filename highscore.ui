@@ -13,38 +13,38 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">QDialog{ 
-background-color: 	#b9e3f7 ;
-color: #007dff;
-border-radius: 15px;
-}</string>
-  </property>
-  <widget class="QPushButton" name="Back_Button">
+  <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>71</width>
+     <x>300</x>
+     <y>260</y>
+     <width>81</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Georgia</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{ 
 border-radius: 15px;
-border-right: 1px solid #ADD8E6;
-border-bottom: 1px solid #ADD8E6;
+border-right: 3px solid #003366;
+border-bottom: 3px solid #003366;
 }
 QPushButton:enabled{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:pressed{
-background-color: #000080;
+background-color: #040273;
 color: white;
 }
 QPushButton:hover:!pressed{
-background-color: #4169e1;
+background-color: #0059b3;
 color: white;
 }
 QPushButton:disabled{
@@ -56,7 +56,76 @@ color: #000000;
 </string>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string>back</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="easyScores">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>111</width>
+     <height>201</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="mediumScores">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>30</y>
+     <width>111</width>
+     <height>201</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="hardScores">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>30</y>
+     <width>121</width>
+     <height>201</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Easy Score</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>10</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Medium Score</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>10</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>High Score</string>
    </property>
   </widget>
  </widget>

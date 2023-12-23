@@ -11,6 +11,10 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <cstdio>
+#include <ctime>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 const int blockSize = 20;
@@ -36,6 +40,9 @@ sec_window::sec_window(int rows, int columns, int mines, GameLevel level_s, QWid
 
 void sec_window::updateTimer()
 {
+    if(game->gameState==WIN){
+        highscore();
+    }
     if (game->gameState != OVER && game->gameState != WIN)
     {
         timeLabel->setText("Time: " + QString::number(++game->timerSeconds) + " s");
@@ -132,11 +139,72 @@ void sec_window::result(){
         QMessageBox::warning(this, "", "SORRY! You Lose!");
      }
      if(game->gameState == WIN){
-        highscore();
+        disconnect(timer, SIGNAL(timeout()), this, SLOT(updateTimer())); // Disconnect the timer
         // Show a wining message
         QMessageBox::warning(this, "", "BRAVO! You Win!");
+        highscore();
+
+     }
+     timer->stop();
+
+}
+
+void sec_window::highscore() {
+      string filePath = "/Users/asifsadek/Documents/GitHub/minesweeper";
+     if (game->gameLevel == EASY) {
+        filePath = filePath + "/Easy.txt";
+     } else if (game->gameLevel == MEDIUM) {
+        filePath = filePath + "/Medium.txt";
+     } else if(game->gameLevel == HARD){
+        filePath = filePath + "/Hard.txt";
+     }
+     qDebug()<<filePath<<"\n";
+     const int defaultScore = 1000000000;
+
+     int time = game->timerSeconds;
+     int array[5];
+
+     // Read existing highscores from the file
+     std::ifstream infile(filePath);
+     if (infile.is_open()) {
+        for (int i = 0; i < 5; ++i) {
+            if (!(infile >> array[i])) {
+                array[i] = defaultScore;
+            }
+        }
+        infile.close();
+     } else {
+        // Handle the case where the file doesn't exist or can't be opened
+        for (int i = 0; i < 5; ++i) {
+            array[i] = defaultScore;
+        }
+     }
+
+     // Check if the current time qualifies for the highscore
+     for (int i = 0; i < 5; ++i) {
+        if (time < array[i]) {
+            // Shift lower scores down to make room for the new highscore
+            for (int j = 4; j > i; --j) {
+                array[j] = array[j - 1];
+            }
+            array[i] = time;
+            break;
+        }
+     }
+
+     // Write the updated highscores back to the file
+     std::ofstream outfile(filePath, std::ios::trunc); // Use trunc to overwrite the file
+     if (outfile.is_open()) {
+        for (int i = 0; i < 5; ++i) {
+            outfile << array[i] << "\n";
+        }
+        outfile.close();
+     } else {
+        // Handle the case where the file can't be opened for writing
+        std::cerr << "Error: Unable to open " << filePath << " for writing\n";
      }
 }
+
 
 void sec_window::on_Button_Back_clicked()
 {
@@ -161,92 +229,3 @@ sec_window::~sec_window()
         delete ui;
 }
 
-
-//void sec_window::highscore()
-//{
-//        int time=game->timerSeconds;
-//        int array[5]={1000000000,1000000000,1000000000,1000000000,1000000000};
-//        std::fstream FileName;
-//        if(game->gameLevel==EASY){
-//            FileName.open("Easy.txt", std::ios::out | std::ios::in );
-//        }
-//        if(game->gameLevel==MEDIUM){
-//            FileName.open("Medium.txt", std::ios::out | std::ios::in );
-//        }
-//        if(game->gameLevel==HARD){
-//            FileName.open("Hard.txt", std::ios::out | std::ios::in );
-//        }
-//        if(game->gameLevel==CUSTOM){
-//            FileName.open("Custom.txt", std::ios::out | std::ios::in );
-//        }
-//        int x=0;
-//        while (x<5) {
-//          if(FileName.eof())
-//            break;
-//          FileName>>array[x];
-//          x++;
-//        }
-
-//        x=0;
-//        while (x<5) {
-//          if(array[x]>=time){
-//            int y=4;
-//            while(y>x){
-//                array[y]=array[y-1];
-//                y--;
-//               }
-//            array[y]=time;
-//            break;}
-//          x++;
-//        }
-
-//        x=0;
-//        while (x<5) {
-//          FileName<<array[x]<<" ";
-//          x++;
-//        }
-//        FileName.close();
-
-//}
-
-
-void sec_window::highscore(){
-
-
-        int arr[5];
-
-        //int arrFromFile[5];
-        ifstream ifs("Easy.txt");
-//        if (!ifs.is_open())
-//        cout << "File isn`t opened!";
-//        else
-//        {
-        string line;
-        string str = "";
-        getline(ifs, line, '\n');
-        int k= 0;
-        for (int i = 0; i < line.size(); i++)
-        {
-            if (line[i] == ' ')
-            {
-                arr[k++] = stoi(str);
-                str = "";
-            }
-            else
-                str += line[i];
-        }
-       // }
-        ifs.close();
-        ofstream of;
-        of.open("Easy.txt");
-        //        if (!of.is_open())
-        //        cout << "File isn`t opened!";
-        //        else
-        //        {
-        for (int i = 0; i < 5; i++)
-        {
-        of << arr[i] << " ";
-        }
-        // }
-        of.close();
-}
